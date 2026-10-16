@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Arquitetura da informação</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:#0F172A;background:#F6F7F9}
+.screen{width:2000px;background:#fff;padding:64px}
+h1{font-size:40px;font-weight:700;letter-spacing:-.5px}
+.sub{font-size:18px;color:#64748B;margin-top:8px}
+h2{font-size:14px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#1D4ED8;margin:56px 0 28px}
+.tree{display:flex;flex-direction:column;align-items:center}
+.row{display:flex;align-items:flex-start;justify-content:center}
+.c{display:flex;flex-direction:column;align-items:center;padding:0 12px;position:relative}
+.h{display:flex;width:calc(100% + 24px);height:1px}
+.h i{flex:1;height:1px;background:#94A3B8;display:block}
+.c.f>.h .l,.c.la>.h .r,.c.o>.h i{background:transparent}
+.v{width:1px;height:24px;background:#94A3B8}
+.n{width:230px;border:1px solid #CBD5E1;border-radius:10px;background:#fff;padding:14px 16px}
+.n b{display:block;font-size:16px;font-weight:600}
+.n small{display:block;font-size:12px;color:#64748B;margin-top:2px}
+.n ul{list-style:none;margin-top:10px;border-top:1px solid #E2E8F0;padding-top:8px}
+.n li{font-size:12.5px;line-height:20px;color:#334155}
+.n.root{background:#1D4ED8;border-color:#1D4ED8;color:#fff}
+.n.root small{color:#DBEAFE}
+.n.adm{background:#0F172A;border-color:#0F172A;color:#fff}
+.n.adm small{color:#CBD5E1}
+.n.ext{border-style:dashed;background:#F8FAFC}
+.globals{display:flex;gap:24px;margin-top:8px}
+.g{flex:1;border:1px solid #E2E8F0;border-radius:10px;padding:18px 20px;background:#F8FAFC}
+.g b{font-size:15px;font-weight:600}
+.g p{font-size:13px;line-height:21px;color:#475569;margin-top:6px}
+.legend{display:flex;gap:28px;margin-top:20px;font-size:13px;color:#475569;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:18px;height:18px;border-radius:5px;border:1px solid #CBD5E1;display:inline-block}
+</style>
+</head>
+<body>
+<div class="screen">
+  <h1>Arquitetura da informação</h1>
+  <p class="sub">Portefólio profissional online — mapa do site público e do backoffice</p>
+  <div class="legend">
+    <span><i class="sw" style="background:#1D4ED8;border-color:#1D4ED8"></i>Entrada do site público</span>
+    <span><i class="sw" style="background:#fff"></i>Página</span>
+    <span><i class="sw" style="background:#F8FAFC;border-style:dashed"></i>Serviço externo / ficheiro</span>
+    <span><i class="sw" style="background:#0F172A;border-color:#0F172A"></i>Área protegida (backoffice)</span>
+  </div>
+
+  <h2>1 · Website público</h2>
+  <div class="tree">
+    <div class="n root"><b>Home</b><small>/</small><ul style="border-color:#3B82F6"><li style="color:#fff">Apresentação (hero)</li><li style="color:#fff">Projetos em destaque</li><li style="color:#fff">Resumo "Sobre mim"</li><li style="color:#fff">Chamada para contacto</li></ul></div>
+    <div class="v"></div>
+    <div class="row">
+      <div class="c f"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Sobre mim</b><small>/sobre</small><ul><li>Biografia e fotografia</li><li>Competências</li><li>Experiência</li><li>Formação</li></ul></div>
+      </div>
+      <div class="c"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Projetos / Portefólio</b><small>/projetos</small><ul><li>Pesquisa por texto</li><li>Filtro por categoria</li><li>Filtro por tecnologia</li><li>Grelha de projetos</li></ul></div>
+        <div class="v"></div>
+        <div class="n"><b>Página individual de projeto</b><small>/projetos/[slug]</small><ul><li>Título, resumo e capa</li><li>Cliente, ano, função</li><li>Tecnologias</li><li>Descrição e galeria</li><li>Projeto anterior / seguinte</li></ul></div>
+      </div>
+      <div class="c"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>CV</b><small>/cv</small><ul><li>Consulta online</li><li>Experiência e formação</li><li>Competências e idiomas</li><li>Botão "Descarregar PDF"</li></ul></div>
+        <div class="v"></div>
+        <div class="n ext"><b>CV em PDF</b><small>ficheiro para download</small></div>
+      </div>
+      <div class="c la"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Contacto</b><small>/contacto</small><ul><li>Nome, Email, Assunto, Mensagem</li><li>Validação dos campos</li><li>Feedback de sucesso / erro</li><li>Contactos diretos e redes</li></ul></div>
+        <div class="v"></div>
+        <div class="n ext"><b>Brevo</b><small>envio feito pelo servidor — a chave de API nunca chega ao navegador</small></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>2 · Elementos globais (em todas as páginas públicas)</h2>
+  <div class="globals">
+    <div class="g"><b>Cabeçalho</b><p>Logótipo / nome · Navegação: Início, Sobre mim, Projetos, CV, Contacto · Botão de contacto</p></div>
+    <div class="g"><b>Idioma</b><p>Alternador PT / EN em todas as páginas. Todos os conteúdos geridos no backoffice têm versão em português e em inglês.</p></div>
+    <div class="g"><b>Rodapé</b><p>Ligações rápidas · Redes sociais · Email · Direitos de autor · Acesso à administração</p></div>
+    <div class="g"><b>Extras</b><p>Dark mode · SEO (título, descrição e imagem por página) · Estatísticas de visitas</p></div>
+  </div>
+
+  <h2>3 · Backoffice (gestor do website)</h2>
+  <div class="tree">
+    <div class="n adm"><b>Login</b><small>/admin/login — utilizador e palavra-passe</small></div>
+    <div class="v"></div>
+    <div class="n adm"><b>Dashboard</b><small>/admin — sessão autenticada</small><ul style="border-color:#334155"><li style="color:#fff">Resumo: projetos, mensagens, visitas</li><li style="color:#fff">Últimas mensagens</li><li style="color:#fff">Atalhos de gestão</li></ul></div>
+    <div class="v"></div>
+    <div class="row">
+      <div class="c f"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Gestão de projetos</b><small>/admin/projetos</small><ul><li>Listar e pesquisar</li><li>Criar / editar / eliminar</li><li>Publicar ou guardar rascunho</li><li>Categorias e tecnologias</li><li>Imagens · textos PT e EN</li></ul></div>
+      </div>
+      <div class="c"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Gestão de conteúdos</b><small>/admin/conteudos</small><ul><li>Textos da Home</li><li>Sobre mim, competências</li><li>Experiência e formação</li><li>CV: dados e ficheiro PDF</li><li>Contactos e redes · SEO</li></ul></div>
+      </div>
+      <div class="c"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Gestão de contactos</b><small>/admin/contactos</small><ul><li>Mensagens recebidas</li><li>Lida / não lida</li><li>Ver detalhe · eliminar</li></ul></div>
+      </div>
+      <div class="c"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Estatísticas</b><small>/admin/estatisticas</small><ul><li>Visitas por página</li><li>Projetos mais vistos</li><li>Downloads do CV</li></ul></div>
+      </div>
+      <div class="c la"><div class="h"><i class="l"></i><i class="r"></i></div><div class="v"></div>
+        <div class="n"><b>Logout</b><small>termina a sessão e volta ao Login</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

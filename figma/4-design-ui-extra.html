@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Design UI</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:#0F172A;background:#fff;font-size:16px;line-height:1.6}
+.screen{width:1440px;background:#fff;margin-bottom:80px;overflow:hidden}
+.screen.m{width:390px}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:0 120px;height:80px;border-bottom:1px solid #E2E8F0;background:#fff}
+.logo{font-size:20px;font-weight:700;letter-spacing:-.3px}
+.logo i{color:#1D4ED8;font-style:normal}
+.nav{display:flex;gap:36px;font-size:15px;font-weight:500;color:#475569}
+.nav b{color:#0F172A;font-weight:600;border-bottom:2px solid #1D4ED8;padding-bottom:4px}
+.tl{display:flex;gap:20px;align-items:center}
+.lang{font-size:13px;font-weight:600;color:#94A3B8;border:1px solid #E2E8F0;border-radius:8px;padding:6px 10px}
+.lang b{color:#0F172A}
+.bt{display:inline-block;background:#1D4ED8;color:#fff;font-size:15px;font-weight:600;padding:13px 24px;border-radius:10px;border:1px solid #1D4ED8;line-height:1.2}
+.bt.o{background:#fff;color:#0F172A;border-color:#CBD5E1}
+.bt.s{padding:9px 16px;font-size:14px;border-radius:8px}
+.sec{padding:96px 120px}
+.sec.g{background:#F8FAFC}
+.eb{font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#1D4ED8}
+h1{font-size:64px;line-height:1.1;font-weight:700;letter-spacing:-1.5px}
+h2{font-size:36px;line-height:1.2;font-weight:700;letter-spacing:-.6px}
+h3{font-size:20px;line-height:1.3;font-weight:600}
+.lead{font-size:20px;color:#475569;line-height:1.6}
+p{color:#475569}
+.mu{color:#64748B;font-size:14px}
+.ph{background:#EEF2F7;border:1px solid #E2E8F0;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:14px;font-weight:500;border-radius:16px}
+.g2{display:flex;gap:80px;align-items:flex-start}
+.col{flex:1}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px}
+.card{border:1px solid #E2E8F0;border-radius:16px;background:#fff;overflow:hidden}
+.card .ph{border-radius:0;border:0;border-bottom:1px solid #E2E8F0;height:230px}
+.cb{padding:24px}
+.cb p{font-size:15px;margin-top:8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{background:#F1F5F9;color:#334155;border-radius:99px;padding:5px 14px;font-size:13px;font-weight:500;line-height:1.4}
+.chip.on{background:#1D4ED8;color:#fff}
+.chip.ln{background:#fff;border:1px solid #CBD5E1}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.lk{font-size:15px;font-weight:600;color:#1D4ED8}
+.ft{padding:56px 120px 40px;background:#0F172A;color:#CBD5E1;font-size:14px}
+.ft .logo{color:#fff}
+.ft .top{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:36px;border-bottom:1px solid #1E293B}
+.ft .lks{display:flex;gap:32px}
+.ft .bot{display:flex;justify-content:space-between;padding-top:24px;color:#64748B;font-size:13px}
+.lb{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#94A3B8}
+.fl{font-size:14px;font-weight:600;margin-top:20px;color:#0F172A}
+.in{border:1px solid #CBD5E1;border-radius:10px;height:48px;display:flex;align-items:center;padding:0 16px;font-size:15px;color:#94A3B8;margin-top:8px;background:#fff}
+.in.er{border-color:#DC2626;color:#0F172A}
+.in.fc{border-color:#1D4ED8;box-shadow:0 0 0 3px #DBEAFE;color:#0F172A}
+.em{font-size:13px;color:#DC2626;margin-top:6px}
+.ok{background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;border-radius:10px;padding:14px 16px;font-size:14px;font-weight:500;margin-top:20px}
+.tli{padding:0 0 32px 28px;border-left:2px solid #E2E8F0;position:relative}
+.dot{position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:99px;background:#1D4ED8;border:2px solid #fff}
+/* admin */
+.adm{display:flex;min-height:1000px;background:#F8FAFC}
+.sb{width:264px;background:#fff;border-right:1px solid #E2E8F0;padding:28px 20px;display:flex;flex-direction:column}
+.mi{padding:11px 14px;border-radius:10px;font-size:15px;font-weight:500;color:#475569;margin-top:4px}
+.mi.on{background:#EFF6FF;color:#1D4ED8;font-weight:600}
+.main{flex:1;padding:36px 48px}
+.st{background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:24px}
+.st .v{font-size:36px;font-weight:700;letter-spacing:-.8px;line-height:1.2;margin-top:8px}
+.st .d{font-size:13px;color:#059669;font-weight:500;margin-top:4px}
+.pn{background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:24px}
+.tr{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #F1F5F9;font-size:14px}
+.tr.h{font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#94A3B8;padding-top:0}
+.tr span{flex:1}
+.bdg{display:inline-block;font-size:12px;font-weight:600;border-radius:99px;padding:3px 10px;background:#EFF6FF;color:#1D4ED8}
+.bdg.g{background:#ECFDF5;color:#047857}
+.bdg.n{background:#F1F5F9;color:#64748B}
+.av{width:40px;height:40px;border-radius:99px;background:#1D4ED8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.bars{display:flex;align-items:flex-end;gap:14px;height:180px;margin-top:20px}
+.bars i{flex:1;background:#BFDBFE;border-radius:6px 6px 0 0;display:block}
+.bars i.on{background:#1D4ED8}
+.sw{height:88px;border-radius:12px;border:1px solid #E2E8F0}
+.dk{background:#0B1120;color:#F1F5F9}
+.dk .hd{background:#0B1120;border-color:#1E293B}
+.dk .nav{color:#94A3B8}
+.dk .nav b{color:#F1F5F9;border-color:#60A5FA}
+.dk p,.dk .lead,.dk .mu{color:#94A3B8}
+.dk .sec.g{background:#0F172A}
+.dk .card{background:#111C33;border-color:#1E293B}
+.dk .ph{background:#16213A;border-color:#1E293B;color:#64748B}
+.dk .chip{background:#1E293B;color:#CBD5E1}
+.dk .chip.ln{background:#0B1120;border-color:#334155}
+.dk .bt{background:#3B82F6;border-color:#3B82F6}
+.dk .bt.o{background:#0B1120;color:#F1F5F9;border-color:#334155}
+.dk .eb,.dk .lk,.dk .logo i{color:#60A5FA}
+.dk .lang{border-color:#1E293B;color:#64748B}
+.dk .lang b{color:#F1F5F9}
+.dk .ft{background:#060B16}
+.tabs{display:flex;gap:28px;border-bottom:1px solid #E2E8F0;margin-top:28px;font-size:15px;font-weight:500;color:#64748B}
+.tabs span{padding-bottom:14px}
+.tabs b{padding-bottom:12px;color:#1D4ED8;font-weight:600;border-bottom:2px solid #1D4ED8}
+.pb{height:8px;border-radius:99px;background:#EFF6FF;flex:2;display:flex}
+.pb i{display:block;height:8px;border-radius:99px;background:#1D4ED8}
+</style>
+</head>
+<body>
+
+<!-- ============ CONTEUDOS ============ -->
+<div class="screen" data-name="Backoffice · Gestão de conteúdos">
+  <div class="adm"><div class="sb"><div class="logo" style="padding:0 14px 24px">Nome Apelido<i>.</i></div><div class="mi">Dashboard</div><div class="mi">Projetos</div><div class="mi on">Conteúdos</div><div class="mi">Contactos</div><div class="mi">Estatísticas</div><div class="mi" style="margin-top:auto;border-top:1px solid #E2E8F0;border-radius:0;padding-top:20px">Terminar sessão</div></div>
+    <div class="main"><div style="display:flex;justify-content:space-between;align-items:center"><div><h2 style="font-size:28px">Conteúdos</h2><div class="mu">Edita os textos do website em português e em inglês</div></div><div class="tl"><span class="bt o s">Ver site ↗</span><div class="av">NA</div></div></div>
+      <div class="tabs"><b>Home</b><span>Sobre mim</span><span>Competências</span><span>Experiência e formação</span><span>CV</span><span>Contactos e redes</span><span>SEO</span></div>
+      <div style="display:flex;gap:24px;margin-top:28px;align-items:flex-start">
+        <div class="pn" style="flex:3"><h3>Secção de apresentação (hero)</h3>
+          <div style="display:flex;gap:20px"><div class="col"><div class="fl">Nome</div><div class="in" style="color:#0F172A">Nome Apelido</div></div><div class="col"><div class="fl">Fotografia</div><div class="in" style="justify-content:space-between;color:#475569">fotografia.jpg <span style="color:#1D4ED8;font-weight:600;font-size:14px">Alterar</span></div></div></div>
+          <div style="display:flex;gap:20px"><div class="col"><div class="fl">Título profissional <span class="bdg n" style="margin-left:6px">PT</span></div><div class="in" style="color:#0F172A">Título profissional</div></div><div class="col"><div class="fl">Título profissional <span class="bdg n" style="margin-left:6px">EN</span></div><div class="in" style="color:#0F172A">Professional title</div></div></div>
+          <div style="display:flex;gap:20px"><div class="col"><div class="fl">Frase de apresentação <span class="bdg n" style="margin-left:6px">PT</span></div><div class="in" style="height:110px;align-items:flex-start;padding-top:12px;color:#0F172A">Frase curta de apresentação em português.</div></div><div class="col"><div class="fl">Frase de apresentação <span class="bdg n" style="margin-left:6px">EN</span></div><div class="in" style="height:110px;align-items:flex-start;padding-top:12px;color:#0F172A">Short introduction sentence in English.</div></div></div>
+          <h3 style="margin-top:36px;padding-top:28px;border-top:1px solid #F1F5F9">Chamada para contacto</h3>
+          <div style="display:flex;gap:20px"><div class="col"><div class="fl">Título <span class="bdg n" style="margin-left:6px">PT</span></div><div class="in" style="color:#0F172A">Vamos trabalhar juntos?</div></div><div class="col"><div class="fl">Título <span class="bdg n" style="margin-left:6px">EN</span></div><div class="in" style="color:#0F172A">Shall we work together?</div></div></div>
+          <div style="display:flex;gap:12px;margin-top:32px;align-items:center"><span class="bt">Guardar alterações</span><span class="bt o">Cancelar</span><span class="mu" style="margin-left:auto">Última alteração: 00/00/0000 00:00</span></div></div>
+        <div style="flex:2"><div class="pn"><h3>Projetos em destaque</h3><p style="font-size:14px;margin-top:6px">Escolhe até 3 projetos para mostrar na Home.</p>
+            <div class="tr" style="margin-top:8px"><span><b>Título do projeto</b></span><i class="bdg" style="font-style:normal">Em destaque</i></div><div class="tr"><span><b>Título do projeto</b></span><i class="bdg" style="font-style:normal">Em destaque</i></div><div class="tr" style="border:0;padding-bottom:0"><span>Título do projeto</span><i class="bdg n" style="font-style:normal">Adicionar</i></div></div>
+          <div class="pn" style="margin-top:24px"><h3>CV em PDF</h3><p style="font-size:14px;margin-top:6px">Ficheiro disponibilizado no botão "Descarregar CV".</p><div class="in" style="justify-content:space-between;color:#0F172A;margin-top:16px">cv-nome-apelido.pdf <span class="mu">000 KB</span></div><div class="ph" style="height:96px;margin-top:12px;border-style:dashed;border-radius:10px">Arrasta um novo PDF ou clica para substituir</div></div>
+          <div class="ok" style="margin-top:24px">✓ Alterações guardadas com sucesso.</div></div>
+      </div></div></div>
+</div>
+
+<!-- ============ CONTACTOS ============ -->
+<div class="screen" data-name="Backoffice · Gestão de contactos">
+  <div class="adm"><div class="sb"><div class="logo" style="padding:0 14px 24px">Nome Apelido<i>.</i></div><div class="mi">Dashboard</div><div class="mi">Projetos</div><div class="mi">Conteúdos</div><div class="mi on">Contactos</div><div class="mi">Estatísticas</div><div class="mi" style="margin-top:auto;border-top:1px solid #E2E8F0;border-radius:0;padding-top:20px">Terminar sessão</div></div>
+    <div class="main"><div style="display:flex;justify-content:space-between;align-items:center"><div><h2 style="font-size:28px">Contactos</h2><div class="mu">Mensagens recebidas pelo formulário de contacto</div></div><div class="tl"><span class="bt o s">Ver site ↗</span><div class="av">NA</div></div></div>
+      <div style="display:flex;gap:24px;margin-top:32px;align-items:flex-start">
+        <div class="pn" style="flex:3"><div style="display:flex;gap:16px;margin-bottom:24px;align-items:center"><div class="in" style="flex:1;margin:0">Pesquisar mensagens…</div><div class="chips" style="margin:0"><span class="chip on">Todas</span><span class="chip">Não lidas</span><span class="chip">Lidas</span></div></div>
+          <div class="tr h"><span>Nome</span><span style="flex:2">Assunto</span><span>Data</span><span style="flex:0 0 70px">Estado</span></div>
+          <div class="tr" style="background:#EFF6FF;margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px"><span><b>Nome do remetente</b></span><span style="flex:2"><b>Assunto da mensagem</b></span><span class="mu">00/00/0000</span><span style="flex:0 0 70px"><i class="bdg" style="font-style:normal">Nova</i></span></div>
+          <div class="tr"><span><b>Nome do remetente</b></span><span style="flex:2"><b>Assunto da mensagem</b></span><span class="mu">00/00/0000</span><span style="flex:0 0 70px"><i class="bdg" style="font-style:normal">Nova</i></span></div>
+          <div class="tr"><span>Nome do remetente</span><span style="flex:2">Assunto da mensagem</span><span class="mu">00/00/0000</span><span style="flex:0 0 70px"><i class="bdg n" style="font-style:normal">Lida</i></span></div>
+          <div class="tr"><span>Nome do remetente</span><span style="flex:2">Assunto da mensagem</span><span class="mu">00/00/0000</span><span style="flex:0 0 70px"><i class="bdg n" style="font-style:normal">Lida</i></span></div>
+          <div class="tr"><span>Nome do remetente</span><span style="flex:2">Assunto da mensagem</span><span class="mu">00/00/0000</span><span style="flex:0 0 70px"><i class="bdg n" style="font-style:normal">Lida</i></span></div>
+          <div class="tr" style="border:0"><span>Nome do remetente</span><span style="flex:2">Assunto da mensagem</span><span class="mu">00/00/0000</span><span style="flex:0 0 70px"><i class="bdg n" style="font-style:normal">Lida</i></span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span class="mu">A mostrar 6 de 00 mensagens</span><div style="display:flex;gap:8px"><span class="bt o s">← Anterior</span><span class="bt o s">Seguinte →</span></div></div></div>
+        <div class="pn" style="flex:2"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Assunto da mensagem</h3><i class="bdg" style="font-style:normal">Nova</i></div>
+          <div style="display:flex;gap:14px;align-items:center;margin-top:20px;padding-bottom:20px;border-bottom:1px solid #F1F5F9"><div class="av" style="background:#EFF6FF;color:#1D4ED8">NR</div><div><div style="font-weight:600">Nome do remetente</div><div class="mu">remetente@email.com · 00/00/0000 00:00</div></div></div>
+          <p style="font-size:15px;margin-top:20px">Texto da mensagem enviada pelo visitante através do formulário de contacto. Exemplo de mensagem com várias linhas para mostrar como o conteúdo é apresentado neste painel.</p><p style="font-size:15px;margin-top:12px">Segundo parágrafo da mensagem de exemplo.</p>
+          <div style="margin-top:28px"><span class="bt" style="display:block;text-align:center">Responder por email ↗</span></div><div style="display:flex;gap:12px;margin-top:12px"><span class="bt o" style="flex:1;text-align:center">Marcar como lida</span><span class="bt o" style="flex:1;text-align:center;color:#DC2626;border-color:#FECACA">Eliminar</span></div></div>
+      </div></div></div>
+</div>
+
+<!-- ============ ESTATISTICAS ============ -->
+<div class="screen" data-name="Backoffice · Estatísticas">
+  <div class="adm"><div class="sb"><div class="logo" style="padding:0 14px 24px">Nome Apelido<i>.</i></div><div class="mi">Dashboard</div><div class="mi">Projetos</div><div class="mi">Conteúdos</div><div class="mi">Contactos</div><div class="mi on">Estatísticas</div><div class="mi" style="margin-top:auto;border-top:1px solid #E2E8F0;border-radius:0;padding-top:20px">Terminar sessão</div></div>
+    <div class="main"><div style="display:flex;justify-content:space-between;align-items:center"><div><h2 style="font-size:28px">Estatísticas</h2><div class="mu">Visitas ao website</div></div><div class="tl"><div class="chips" style="margin:0"><span class="chip">7 dias</span><span class="chip on">30 dias</span><span class="chip">12 meses</span></div><div class="av">NA</div></div></div>
+      <div class="g4" style="margin-top:32px"><div class="st"><div class="lb">Visitas</div><div class="v">000</div><div class="d">↑ 0% vs. período anterior</div></div><div class="st"><div class="lb">Visitantes únicos</div><div class="v">000</div><div class="d">↑ 0% vs. período anterior</div></div><div class="st"><div class="lb">Downloads do CV</div><div class="v">00</div><div class="d">↑ 0% vs. período anterior</div></div><div class="st"><div class="lb">Mensagens recebidas</div><div class="v">00</div><div class="d" style="color:#64748B">0 por responder</div></div></div>
+      <div class="pn" style="margin-top:24px"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Visitas por dia</h3><span class="mu">Últimos 30 dias</span></div><div class="bars" style="gap:8px;height:220px"><i style="height:30%"></i><i style="height:42%"></i><i style="height:38%"></i><i style="height:50%"></i><i style="height:46%"></i><i style="height:28%"></i><i style="height:24%"></i><i style="height:48%"></i><i style="height:58%"></i><i style="height:52%"></i><i style="height:64%"></i><i style="height:60%"></i><i style="height:36%"></i><i style="height:30%"></i><i style="height:62%"></i><i style="height:70%"></i><i style="height:66%"></i><i style="height:78%"></i><i style="height:72%"></i><i style="height:44%"></i><i style="height:40%"></i><i style="height:74%"></i><i style="height:84%"></i><i style="height:80%"></i><i style="height:92%"></i><i style="height:86%"></i><i style="height:54%"></i><i style="height:50%"></i><i style="height:90%"></i><i class="on" style="height:100%"></i></div></div>
+      <div style="display:flex;gap:24px;margin-top:24px"><div class="pn col"><h3 style="margin-bottom:16px">Páginas mais visitadas</h3>
+          <div class="tr"><span>Home</span><div class="pb"><i style="width:100%"></i></div><b style="width:48px;text-align:right">000</b></div><div class="tr"><span>Projetos</span><div class="pb"><i style="width:72%"></i></div><b style="width:48px;text-align:right">000</b></div><div class="tr"><span>Sobre mim</span><div class="pb"><i style="width:48%"></i></div><b style="width:48px;text-align:right">00</b></div><div class="tr"><span>CV</span><div class="pb"><i style="width:36%"></i></div><b style="width:48px;text-align:right">00</b></div><div class="tr" style="border:0;padding-bottom:0"><span>Contacto</span><div class="pb"><i style="width:20%"></i></div><b style="width:48px;text-align:right">00</b></div></div>
+        <div class="pn col"><h3 style="margin-bottom:16px">Projetos mais vistos</h3>
+          <div class="tr"><span>Título do projeto</span><div class="pb"><i style="width:100%"></i></div><b style="width:48px;text-align:right">00</b></div><div class="tr"><span>Título do projeto</span><div class="pb"><i style="width:80%"></i></div><b style="width:48px;text-align:right">00</b></div><div class="tr"><span>Título do projeto</span><div class="pb"><i style="width:55%"></i></div><b style="width:48px;text-align:right">00</b></div><div class="tr"><span>Título do projeto</span><div class="pb"><i style="width:40%"></i></div><b style="width:48px;text-align:right">00</b></div><div class="tr" style="border:0;padding-bottom:0"><span>Título do projeto</span><div class="pb"><i style="width:22%"></i></div><b style="width:48px;text-align:right">00</b></div></div></div>
+    </div></div>
+</div>
+
+<!-- ============ HOME EN ============ -->
+<div class="screen" data-name="Home · EN">
+  <div class="hd"><div class="logo">Name Surname<i>.</i></div><div class="nav"><b>Home</b><span>About me</span><span>Projects</span><span>CV</span><span>Contact</span></div><div class="tl"><span class="lang">PT · <b>EN</b></span><span class="bt s">Get in touch</span></div></div>
+  <div class="sec g2" style="align-items:center;padding-top:104px;padding-bottom:104px">
+    <div class="col"><div class="eb">Hi, I am</div><h1 style="margin-top:16px">Name Surname</h1><div style="font-size:28px;font-weight:600;color:#1D4ED8;margin-top:12px;letter-spacing:-.3px">Professional title</div><p class="lead" style="margin-top:24px;max-width:520px">Short introduction: what you do, who you do it for and what sets you apart. Two lines at most.</p><div style="display:flex;gap:16px;margin-top:40px"><span class="bt">View projects</span><span class="bt o">Download CV</span></div></div>
+    <div class="ph" style="width:460px;height:520px;border-radius:24px">Photo</div>
+  </div>
+  <div class="sec g">
+    <div class="sh"><div><div class="eb">Portfolio</div><h2 style="margin-top:8px">Featured projects</h2></div><span class="lk">View all projects →</span></div>
+    <div class="g3">
+      <div class="card"><div class="ph">Project image</div><div class="cb"><h3>Project title</h3><p>Project summary in one or two lines of text.</p><div class="chips"><span class="chip">Category</span><span class="chip">Technology</span></div></div></div>
+      <div class="card"><div class="ph">Project image</div><div class="cb"><h3>Project title</h3><p>Project summary in one or two lines of text.</p><div class="chips"><span class="chip">Category</span><span class="chip">Technology</span></div></div></div>
+      <div class="card"><div class="ph">Project image</div><div class="cb"><h3>Project title</h3><p>Project summary in one or two lines of text.</p><div class="chips"><span class="chip">Category</span><span class="chip">Technology</span></div></div></div>
+    </div>
+  </div>
+  <div class="sec"><div style="background:#1D4ED8;border-radius:24px;padding:72px;text-align:center"><h2 style="color:#fff">Shall we work together?</h2><p style="color:#DBEAFE;font-size:18px;margin-top:12px">I am available for new projects, internships and opportunities.</p><div style="margin-top:32px"><span class="bt" style="background:#fff;color:#1D4ED8;border-color:#fff">Get in touch</span></div></div></div>
+  <div class="ft"><div class="top"><div><div class="logo">Name Surname<i>.</i></div><div style="margin-top:8px;color:#94A3B8">Professional title</div></div><div class="lks"><span>Home</span><span>About me</span><span>Projects</span><span>CV</span><span>Contact</span></div><div class="lks"><span>LinkedIn</span><span>GitHub</span><span>Email</span></div></div><div class="bot"><span>© 2026 Name Surname. All rights reserved.</span><span>Admin</span></div></div>
+</div>
+
+<!-- ============ HOME DARK ============ -->
+<div class="screen dk" data-name="Home · Dark mode">
+  <div class="hd"><div class="logo">Nome Apelido<i>.</i></div><div class="nav"><b>Início</b><span>Sobre mim</span><span>Projetos</span><span>CV</span><span>Contacto</span></div><div class="tl"><span class="lang">☀ · <b>☾</b></span><span class="lang"><b>PT</b> · EN</span><span class="bt s">Contactar</span></div></div>
+  <div class="sec g2" style="align-items:center;padding-top:104px;padding-bottom:104px">
+    <div class="col"><div class="eb">Olá, eu sou</div><h1 style="margin-top:16px">Nome Apelido</h1><div style="font-size:28px;font-weight:600;color:#60A5FA;margin-top:12px;letter-spacing:-.3px">Título profissional</div><p class="lead" style="margin-top:24px;max-width:520px">Frase curta de apresentação: o que fazes, para quem e o que te distingue. Duas linhas no máximo.</p><div style="display:flex;gap:16px;margin-top:40px"><span class="bt">Ver projetos</span><span class="bt o">Descarregar CV</span></div></div>
+    <div class="ph" style="width:460px;height:520px;border-radius:24px">Fotografia</div>
+  </div>
+  <div class="sec g">
+    <div class="sh"><div><div class="eb">Portefólio</div><h2 style="margin-top:8px">Projetos em destaque</h2></div><span class="lk">Ver todos os projetos →</span></div>
+    <div class="g3">
+      <div class="card"><div class="ph">Imagem do projeto</div><div class="cb"><h3>Título do projeto</h3><p>Resumo do projeto numa ou duas linhas de texto.</p><div class="chips"><span class="chip">Categoria</span><span class="chip">Tecnologia</span></div></div></div>
+      <div class="card"><div class="ph">Imagem do projeto</div><div class="cb"><h3>Título do projeto</h3><p>Resumo do projeto numa ou duas linhas de texto.</p><div class="chips"><span class="chip">Categoria</span><span class="chip">Tecnologia</span></div></div></div>
+      <div class="card"><div class="ph">Imagem do projeto</div><div class="cb"><h3>Título do projeto</h3><p>Resumo do projeto numa ou duas linhas de texto.</p><div class="chips"><span class="chip">Categoria</span><span class="chip">Tecnologia</span></div></div></div>
+    </div>
+  </div>
+  <div class="sec"><div style="background:#1D4ED8;border-radius:24px;padding:72px;text-align:center"><h2 style="color:#fff">Vamos trabalhar juntos?</h2><p style="color:#DBEAFE;font-size:18px;margin-top:12px">Estou disponível para novos projetos, estágios e oportunidades.</p><div style="margin-top:32px"><span class="bt" style="background:#fff;color:#1D4ED8;border-color:#fff">Entrar em contacto</span></div></div></div>
+  <div class="ft"><div class="top"><div><div class="logo">Nome Apelido<i>.</i></div><div style="margin-top:8px;color:#94A3B8">Título profissional</div></div><div class="lks"><span>Início</span><span>Sobre mim</span><span>Projetos</span><span>CV</span><span>Contacto</span></div><div class="lks"><span>LinkedIn</span><span>GitHub</span><span>Email</span></div></div><div class="bot"><span>© 2026 Nome Apelido. Todos os direitos reservados.</span><span>Administração</span></div></div>
+</div>
+
+<!-- ============ PROJETOS MOBILE ============ -->
+<div class="screen m" data-name="Projetos · Mobile">
+  <div class="hd" style="padding:0 20px;height:64px"><div class="logo" style="font-size:18px">Nome Apelido<i>.</i></div><div class="tl" style="gap:14px"><span class="lang"><b>PT</b> · EN</span><span style="display:flex;flex-direction:column;gap:5px"><i style="width:22px;height:2px;background:#0F172A;display:block"></i><i style="width:22px;height:2px;background:#0F172A;display:block"></i><i style="width:22px;height:2px;background:#0F172A;display:block"></i></span></div></div>
+  <div style="padding:40px 20px 24px"><div class="eb">Portefólio</div><h1 style="font-size:40px;margin-top:8px;letter-spacing:-1px">Projetos</h1><p style="margin-top:12px">Pesquisa por nome ou filtra por categoria e tecnologia.</p><div class="in" style="margin-top:24px">Pesquisar projetos…</div><div class="chips"><span class="chip on">Todos</span><span class="chip">Categoria</span><span class="chip">Categoria</span><span class="chip">Categoria</span></div><div class="in" style="justify-content:space-between;color:#475569;margin-top:16px">Tecnologia <span>▾</span></div></div>
+  <div style="padding:8px 20px 48px">
+    <div class="card"><div class="ph" style="height:200px">Imagem do projeto</div><div class="cb" style="padding:20px"><h3>Título do projeto</h3><p>Resumo do projeto numa ou duas linhas de texto.</p><div class="chips"><span class="chip">Categoria</span><span class="chip">Tecnologia</span></div></div></div>
+    <div class="card" style="margin-top:20px"><div class="ph" style="height:200px">Imagem do projeto</div><div class="cb" style="padding:20px"><h3>Título do projeto</h3><p>Resumo do projeto numa ou duas linhas de texto.</p><div class="chips"><span class="chip">Categoria</span><span class="chip">Tecnologia</span></div></div></div>
+    <div class="card" style="margin-top:20px"><div class="ph" style="height:200px">Imagem do projeto</div><div class="cb" style="padding:20px"><h3>Título do projeto</h3><p>Resumo do projeto numa ou duas linhas de texto.</p><div class="chips"><span class="chip">Categoria</span><span class="chip">Tecnologia</span></div></div></div>
+    <div style="margin-top:28px;text-align:center"><span class="bt o">Carregar mais projetos</span></div></div>
+  <div class="ft" style="padding:40px 20px 28px"><div class="logo">Nome Apelido<i>.</i></div><div style="margin-top:20px;line-height:2.2">Início<br>Sobre mim<br>Projetos<br>CV<br>Contacto</div><div style="margin-top:24px;padding-top:20px;border-top:1px solid #1E293B;color:#64748B;font-size:13px">© 2026 Nome Apelido</div></div>
+</div>
+
+<!-- ============ CONTACTO MOBILE ============ -->
+<div class="screen m" data-name="Contacto · Mobile">
+  <div class="hd" style="padding:0 20px;height:64px"><div class="logo" style="font-size:18px">Nome Apelido<i>.</i></div><div class="tl" style="gap:14px"><span class="lang"><b>PT</b> · EN</span><span style="display:flex;flex-direction:column;gap:5px"><i style="width:22px;height:2px;background:#0F172A;display:block"></i><i style="width:22px;height:2px;background:#0F172A;display:block"></i><i style="width:22px;height:2px;background:#0F172A;display:block"></i></span></div></div>
+  <div style="padding:40px 20px 48px"><div class="eb">Contacto</div><h1 style="font-size:40px;margin-top:8px;letter-spacing:-1px">Vamos conversar</h1><p style="margin-top:12px">Envia-me uma mensagem e respondo assim que possível.</p>
+    <div class="fl" style="margin-top:28px">Nome <span style="color:#DC2626">*</span></div><div class="in">O teu nome</div>
+    <div class="fl">Email <span style="color:#DC2626">*</span></div><div class="in er">maria.silva@</div><div class="em">Introduz um endereço de email válido.</div>
+    <div class="fl">Assunto <span style="color:#DC2626">*</span></div><div class="in">Assunto da mensagem</div>
+    <div class="fl">Mensagem <span style="color:#DC2626">*</span></div><div class="in" style="height:150px;align-items:flex-start;padding-top:14px">Escreve aqui a tua mensagem…</div>
+    <div class="bt" style="display:flex;justify-content:center;margin-top:24px">Enviar mensagem</div>
+    <div style="margin-top:40px;padding-top:28px;border-top:1px solid #E2E8F0"><div class="lb">Email</div><div style="font-weight:600;margin-top:4px">nome@email.com</div><div class="lb" style="margin-top:20px">Redes sociais</div><div class="chips" style="margin-top:10px"><span class="chip ln">LinkedIn</span><span class="chip ln">GitHub</span><span class="chip ln">Behance</span></div></div></div>
+  <div class="ft" style="padding:40px 20px 28px"><div class="logo">Nome Apelido<i>.</i></div><div style="margin-top:20px;line-height:2.2">Início<br>Sobre mim<br>Projetos<br>CV<br>Contacto</div><div style="margin-top:24px;padding-top:20px;border-top:1px solid #1E293B;color:#64748B;font-size:13px">© 2026 Nome Apelido</div></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Local tools and settings
+.claude/
+
+# Dependencies, builds and secrets
+node_modules/
+dist/
+.env

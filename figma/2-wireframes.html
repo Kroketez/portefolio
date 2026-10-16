@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Wireframes</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:#3F3F46;background:#fff}
+.screen{width:1440px;background:#fff;border:2px solid #A1A1AA;margin-bottom:80px}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:0 96px;height:80px;border-bottom:2px solid #D4D4D8}
+.logo{width:120px;height:32px;background:#A1A1AA;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;gap:36px;font-size:15px}
+.nav u{text-decoration:none;border-bottom:2px solid #52525B;font-weight:600}
+.tl{display:flex;gap:16px;align-items:center;font-size:13px}
+.bt{border:2px solid #52525B;padding:10px 20px;font-size:14px;font-weight:600;display:inline-block}
+.bt.f{background:#52525B;color:#fff}
+.sec{padding:72px 96px;border-bottom:2px dashed #E4E4E7}
+.ft{padding:36px 96px;display:flex;justify-content:space-between;font-size:13px;background:#F4F4F5}
+.bx{background:#E4E4E7;border:2px solid #D4D4D8;display:flex;align-items:center;justify-content:center;font-size:13px;color:#71717A;text-align:center}
+.t1{font-size:44px;font-weight:700;color:#27272A}
+.t2{font-size:28px;font-weight:700;color:#27272A}
+.t3{font-size:18px;font-weight:600;color:#27272A}
+.lb{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#71717A}
+.ln{height:10px;background:#D4D4D8;margin-top:12px}
+.g2{display:flex;gap:64px;align-items:flex-start}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px}
+.col{flex:1}
+.card{border:2px solid #D4D4D8;padding:0 0 20px}
+.card .t3,.card .ln,.card .chips{margin-left:20px;margin-right:20px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{border:2px solid #A1A1AA;border-radius:99px;padding:4px 14px;font-size:12px}
+.chip.f{background:#52525B;color:#fff;border-color:#52525B}
+.in{border:2px solid #A1A1AA;height:48px;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#A1A1AA;margin-top:6px}
+.fl{font-size:13px;font-weight:600;margin-top:20px}
+.note{font-size:12px;color:#fff;background:#52525B;display:inline-block;padding:3px 10px;margin-bottom:16px}
+.sb{width:260px;border-right:2px solid #D4D4D8;padding:28px 24px;font-size:15px;line-height:44px}
+.row{display:flex;align-items:center;border-bottom:2px solid #E4E4E7;height:52px;font-size:13px;gap:16px}
+.row span{flex:1}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div class="screen" data-name="WF — Home">
+  <div class="hd"><div class="logo">LOGO</div><div class="nav"><u>Início</u><span>Sobre mim</span><span>Projetos</span><span>CV</span><span>Contacto</span></div><div class="tl"><span>PT | EN</span><span class="bt">Contactar</span></div></div>
+  <div class="sec g2" style="align-items:center">
+    <div class="col"><span class="note">1 · Hero — apresentação</span><div class="lb">Saudação</div><div class="t1" style="margin-top:12px">Nome</div><div class="t3" style="margin-top:12px">Título profissional</div><div class="ln" style="width:90%;margin-top:24px"></div><div class="ln" style="width:70%"></div><div style="display:flex;gap:16px;margin-top:36px"><span class="bt f">Ver projetos</span><span class="bt">Descarregar CV</span></div></div>
+    <div class="bx" style="width:440px;height:440px">Fotografia</div>
+  </div>
+  <div class="sec"><span class="note">2 · Projetos em destaque</span><div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px"><div class="t2">Projetos em destaque</div><span style="font-size:14px;font-weight:600">Ver todos →</span></div>
+    <div class="g3">
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+    </div>
+  </div>
+  <div class="sec g2"><div class="col"><span class="note">3 · Resumo Sobre mim</span><div class="t2">Sobre mim</div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:60%"></div><div style="margin-top:28px"><span class="bt">Saber mais</span></div></div><div class="col"><div class="lb">Competências principais</div><div class="chips"><span class="chip">Competência</span><span class="chip">Competência</span><span class="chip">Competência</span><span class="chip">Competência</span><span class="chip">Competência</span><span class="chip">Competência</span></div></div></div>
+  <div class="sec" style="text-align:center"><span class="note">4 · Chamada para contacto</span><div class="t2">Vamos trabalhar juntos?</div><div class="ln" style="width:40%;margin:16px auto 28px"></div><span class="bt f">Entrar em contacto</span></div>
+  <div class="ft"><span>© Nome</span><span>Início · Sobre mim · Projetos · CV · Contacto</span><span>Redes sociais</span></div>
+</div>
+
+<!-- SOBRE -->
+<div class="screen" data-name="WF — Sobre mim">
+  <div class="hd"><div class="logo">LOGO</div><div class="nav"><span>Início</span><u>Sobre mim</u><span>Projetos</span><span>CV</span><span>Contacto</span></div><div class="tl"><span>PT | EN</span><span class="bt">Contactar</span></div></div>
+  <div class="sec g2"><div class="bx" style="width:400px;height:480px">Fotografia</div><div class="col"><span class="note">1 · Biografia</span><div class="t1">Sobre mim</div><div class="ln" style="margin-top:28px"></div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:80%"></div><div class="ln" style="margin-top:28px"></div><div class="ln"></div><div class="ln" style="width:55%"></div><div style="margin-top:32px;display:flex;gap:16px"><span class="bt f">Ver CV</span><span class="bt">Contactar</span></div></div></div>
+  <div class="sec"><span class="note">2 · Competências por grupo</span><div class="t2" style="margin-bottom:28px">Competências</div><div class="g3">
+    <div class="card" style="padding:20px 0"><div class="t3">Grupo de competências</div><div class="chips"><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span></div></div>
+    <div class="card" style="padding:20px 0"><div class="t3">Grupo de competências</div><div class="chips"><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span></div></div>
+    <div class="card" style="padding:20px 0"><div class="t3">Grupo de competências</div><div class="chips"><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span></div></div></div></div>
+  <div class="sec g2"><div class="col"><span class="note">3 · Experiência (cronologia)</span><div class="t2">Experiência</div>
+      <div style="margin-top:24px"><div class="lb">Ano — Ano</div><div class="t3">Cargo · Empresa</div><div class="ln"></div><div class="ln" style="width:70%"></div></div>
+      <div style="margin-top:28px"><div class="lb">Ano — Ano</div><div class="t3">Cargo · Empresa</div><div class="ln"></div><div class="ln" style="width:70%"></div></div></div>
+    <div class="col"><span class="note">4 · Formação</span><div class="t2">Formação</div>
+      <div style="margin-top:24px"><div class="lb">Ano — Ano</div><div class="t3">Curso · Instituição</div><div class="ln"></div></div>
+      <div style="margin-top:28px"><div class="lb">Ano — Ano</div><div class="t3">Curso · Instituição</div><div class="ln"></div></div></div></div>
+  <div class="ft"><span>© Nome</span><span>Início · Sobre mim · Projetos · CV · Contacto</span><span>Redes sociais</span></div>
+</div>
+
+<!-- PROJETOS -->
+<div class="screen" data-name="WF — Projetos">
+  <div class="hd"><div class="logo">LOGO</div><div class="nav"><span>Início</span><span>Sobre mim</span><u>Projetos</u><span>CV</span><span>Contacto</span></div><div class="tl"><span>PT | EN</span><span class="bt">Contactar</span></div></div>
+  <div class="sec" style="padding-bottom:40px"><div class="t1">Projetos</div><div class="ln" style="width:45%;margin-top:20px"></div>
+    <div style="margin-top:36px"><span class="note">1 · Pesquisa e filtros</span></div>
+    <div style="display:flex;gap:24px;align-items:center"><div class="in" style="width:360px;margin:0">Pesquisar projetos…</div><div class="chips" style="margin:0"><span class="chip f">Todos</span><span class="chip">Categoria</span><span class="chip">Categoria</span><span class="chip">Categoria</span><span class="chip">Tecnologia ▾</span></div></div></div>
+  <div class="sec"><span class="note">2 · Grelha de projetos (cada cartão abre a página do projeto)</span><div class="g3">
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+      <div class="card"><div class="bx" style="height:220px;border:0">Imagem</div><div class="t3" style="margin-top:20px">Título do projeto</div><div class="ln"></div><div class="chips"><span class="chip">Tag</span><span class="chip">Tag</span></div></div>
+    </div><div style="text-align:center;margin-top:40px"><span class="bt">Carregar mais</span></div></div>
+  <div class="ft"><span>© Nome</span><span>Início · Sobre mim · Projetos · CV · Contacto</span><span>Redes sociais</span></div>
+</div>
+
+<!-- PROJETO -->
+<div class="screen" data-name="WF — Página de projeto">
+  <div class="hd"><div class="logo">LOGO</div><div class="nav"><span>Início</span><span>Sobre mim</span><u>Projetos</u><span>CV</span><span>Contacto</span></div><div class="tl"><span>PT | EN</span><span class="bt">Contactar</span></div></div>
+  <div class="sec" style="padding-bottom:40px"><div style="font-size:13px">← Projetos / Título do projeto</div><span class="note" style="margin-top:20px">1 · Cabeçalho do projeto</span><div class="t1">Título do projeto</div><div class="ln" style="width:60%;margin-top:20px"></div>
+    <div class="g4" style="margin-top:36px"><div><div class="lb">Cliente</div><div class="t3">—</div></div><div><div class="lb">Ano</div><div class="t3">—</div></div><div><div class="lb">Função</div><div class="t3">—</div></div><div><div class="lb">Tecnologias</div><div class="chips" style="margin-top:6px"><span class="chip">Tag</span><span class="chip">Tag</span></div></div></div></div>
+  <div class="sec"><div class="bx" style="height:560px">Imagem de capa</div></div>
+  <div class="sec g2"><div class="col" style="flex:2"><span class="note">2 · Descrição</span><div class="t2">O desafio</div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="t2" style="margin-top:36px">A solução</div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:50%"></div></div><div class="col"><div class="card" style="padding:20px 0"><div class="t3">Ligações</div><div class="ln"></div><div class="ln"></div><div style="margin:20px 20px 0"><span class="bt f">Ver projeto online</span></div></div></div></div>
+  <div class="sec"><span class="note">3 · Galeria</span><div style="display:flex;gap:32px"><div class="bx col" style="height:360px">Imagem</div><div class="bx col" style="height:360px">Imagem</div></div></div>
+  <div class="sec" style="display:flex;justify-content:space-between"><span class="bt">← Projeto anterior</span><span class="bt">Projeto seguinte →</span></div>
+  <div class="ft"><span>© Nome</span><span>Início · Sobre mim · Projetos · CV · Contacto</span><span>Redes sociais</span></div>
+</div>
+
+<!-- CV -->
+<div class="screen" data-name="WF — CV">
+  <div class="hd"><div class="logo">LOGO</div><div class="nav"><span>Início</span><span>Sobre mim</span><span>Projetos</span><u>CV</u><span>Contacto</span></div><div class="tl"><span>PT | EN</span><span class="bt">Contactar</span></div></div>
+  <div class="sec" style="display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:40px"><div><div class="t1">Curriculum Vitae</div><div class="ln" style="width:320px;margin-top:20px"></div></div><div><span class="note">1 · Download do PDF</span><br><span class="bt f">↓ Descarregar PDF</span></div></div>
+  <div class="sec g2"><div style="width:320px"><span class="note">2 · Coluna lateral</span><div class="bx" style="height:200px">Fotografia</div><div class="t3" style="margin-top:28px">Contactos</div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:60%"></div><div class="t3" style="margin-top:28px">Competências</div><div class="chips"><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span><span class="chip">Item</span></div><div class="t3" style="margin-top:28px">Idiomas</div><div class="ln"></div><div class="ln" style="width:70%"></div></div>
+    <div class="col"><span class="note">3 · Conteúdo principal</span><div class="t2">Perfil</div><div class="ln"></div><div class="ln" style="width:80%"></div>
+      <div class="t2" style="margin-top:40px">Experiência</div>
+      <div style="margin-top:20px"><div class="lb">Ano — Ano</div><div class="t3">Cargo · Empresa</div><div class="ln"></div><div class="ln" style="width:70%"></div></div>
+      <div style="margin-top:24px"><div class="lb">Ano — Ano</div><div class="t3">Cargo · Empresa</div><div class="ln"></div><div class="ln" style="width:70%"></div></div>
+      <div class="t2" style="margin-top:40px">Formação</div>
+      <div style="margin-top:20px"><div class="lb">Ano — Ano</div><div class="t3">Curso · Instituição</div><div class="ln"></div></div></div></div>
+  <div class="ft"><span>© Nome</span><span>Início · Sobre mim · Projetos · CV · Contacto</span><span>Redes sociais</span></div>
+</div>
+
+<!-- CONTACTO -->
+<div class="screen" data-name="WF — Contacto">
+  <div class="hd"><div class="logo">LOGO</div><div class="nav"><span>Início</span><span>Sobre mim</span><span>Projetos</span><span>CV</span><u>Contacto</u></div><div class="tl"><span>PT | EN</span><span class="bt">Contactar</span></div></div>
+  <div class="sec g2"><div class="col"><span class="note">1 · Informação de contacto</span><div class="t1">Contacto</div><div class="ln" style="margin-top:24px"></div><div class="ln" style="width:70%"></div><div class="lb" style="margin-top:40px">Email</div><div class="t3">—</div><div class="lb" style="margin-top:20px">Localização</div><div class="t3">—</div><div class="lb" style="margin-top:20px">Redes sociais</div><div class="chips"><span class="chip">Rede</span><span class="chip">Rede</span><span class="chip">Rede</span></div></div>
+    <div class="col"><span class="note">2 · Formulário (validação + feedback)</span><div class="card" style="padding:12px 28px 28px"><div class="fl">Nome *</div><div class="in">O teu nome</div><div class="fl">Email *</div><div class="in">nome@email.com</div><div style="font-size:12px;margin-top:4px">⚠ Mensagem de erro de validação</div><div class="fl">Assunto *</div><div class="in">Assunto</div><div class="fl">Mensagem *</div><div class="in" style="height:160px;align-items:flex-start;padding-top:12px">Escreve a tua mensagem…</div><div style="margin-top:24px"><span class="bt f">Enviar mensagem</span></div><div class="bx" style="margin-top:20px;height:48px">✓ Feedback após envio: sucesso / erro</div></div></div></div>
+  <div class="ft"><span>© Nome</span><span>Início · Sobre mim · Projetos · CV · Contacto</span><span>Redes sociais</span></div>
+</div>
+
+<!-- LOGIN -->
+<div class="screen" data-name="WF — Backoffice · Login">
+  <div style="height:900px;display:flex;align-items:center;justify-content:center;background:#F4F4F5"><div class="card" style="width:420px;padding:36px;background:#fff"><div class="logo">LOGO</div><div class="t2" style="margin-top:24px">Iniciar sessão</div><div class="fl">Utilizador / Email</div><div class="in">nome@email.com</div><div class="fl">Palavra-passe</div><div class="in">••••••••</div><div style="font-size:12px;margin-top:4px">⚠ Erro: credenciais inválidas</div><div class="bt f" style="display:block;text-align:center;margin-top:28px">Entrar</div><div style="font-size:13px;text-align:center;margin-top:16px">← Voltar ao site</div></div></div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="screen" data-name="WF — Backoffice · Dashboard">
+  <div style="display:flex;min-height:900px"><div class="sb"><div class="logo" style="margin-bottom:24px">LOGO</div><div><b>▪ Dashboard</b></div><div>Projetos</div><div>Conteúdos</div><div>Contactos</div><div>Estatísticas</div><div style="margin-top:240px;border-top:2px solid #D4D4D8">Sair (logout)</div></div>
+    <div style="flex:1;padding:40px 48px"><div style="display:flex;justify-content:space-between;align-items:center"><div class="t2">Dashboard</div><div class="tl"><span>Ver site ↗</span><div class="bx" style="width:40px;height:40px;border-radius:99px">A</div></div></div>
+      <div style="margin-top:28px"><span class="note">1 · Indicadores</span></div>
+      <div class="g4"><div class="card" style="padding:20px"><div class="lb">Projetos</div><div class="t1">00</div></div><div class="card" style="padding:20px"><div class="lb">Mensagens novas</div><div class="t1">00</div></div><div class="card" style="padding:20px"><div class="lb">Visitas (30 dias)</div><div class="t1">000</div></div><div class="card" style="padding:20px"><div class="lb">Downloads do CV</div><div class="t1">00</div></div></div>
+      <div class="g2" style="margin-top:36px;gap:32px"><div class="col" style="flex:2"><span class="note">2 · Últimas mensagens</span><div class="card" style="padding:8px 20px"><div class="row"><b style="flex:1">Nome</b><b style="flex:1">Assunto</b><b style="flex:1">Data</b></div><div class="row"><span>—</span><span>—</span><span>—</span></div><div class="row"><span>—</span><span>—</span><span>—</span></div><div class="row"><span>—</span><span>—</span><span>—</span></div><div class="row" style="border:0"><span>—</span><span>—</span><span>—</span></div></div></div>
+        <div class="col"><span class="note">3 · Atalhos</span><div class="card" style="padding:20px"><div class="bt f" style="display:block;text-align:center">+ Novo projeto</div><div class="bt" style="display:block;text-align:center;margin-top:12px">Editar conteúdos</div><div class="bt" style="display:block;text-align:center;margin-top:12px">Atualizar CV (PDF)</div></div></div></div>
+      <div style="margin-top:36px"><span class="note">4 · Visitas</span><div class="bx" style="height:220px">Gráfico de visitas</div></div>
+    </div></div>
+</div>
+
+</body>
+</html>
