@@ -40,7 +40,7 @@ recreated from `.env.example` on another computer, and set in Vercel when publis
 3. ~~Close sign-ups in Supabase.~~ Done on 2026-10-16: "Allow new users to sign up" is off.
 4. ~~Test the two-click delete button.~~ Tested on 2026-10-14 with the real login: works.
 5. ~~Publish.~~ Done on 2026-10-16. Code: https://github.com/Kroketez/portefolio. Live site: https://portefolio-neon-phi.vercel.app (Vercel project "portefolio", both VITE_SUPABASE_* values set).
-   To publish changes: run `npx vercel deploy --prod` inside `portfolio`. Optional: connect the GitHub repo in Vercel (Settings > Git, Root Directory `portfolio`) for automatic deploys.
+   GitHub is connected to Vercel (Root Directory `portfolio`): every push to `main` publishes the site automatically.
    Live site tested on 2026-10-16: contact form email arrived, backoffice login and Contactos work.
 6. ~~Check the Figma prototype.~~ Done on 2026-10-16: all links audited (none broken), both main flows clicked through in Present mode. Added links for PT/EN, dark mode and mobile, and flows "Mobile" and "Dark mode".
 7. Add the real content in the backoffice (Conteúdos and Projetos, PT and EN), then update the Figma screens to match.
