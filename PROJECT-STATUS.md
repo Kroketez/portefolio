@@ -42,7 +42,7 @@ recreated from `.env.example` on another computer, and set in Vercel when publis
 5. ~~Publish.~~ Done on 2026-10-16. Code: https://github.com/Kroketez/portefolio. Live site: https://portefolio-neon-phi.vercel.app (Vercel project "portefolio", both VITE_SUPABASE_* values set).
    To publish changes: run `npx vercel deploy --prod` inside `portfolio`. Optional: connect the GitHub repo in Vercel (Settings > Git, Root Directory `portfolio`) for automatic deploys.
    Live site tested on 2026-10-16: contact form email arrived, backoffice login and Contactos work.
-6. Click through the Figma prototype in Present mode (not played end to end yet).
+6. ~~Check the Figma prototype.~~ Done on 2026-10-16: all links audited (none broken), both main flows clicked through in Present mode. Added links for PT/EN, dark mode and mobile, and flows "Mobile" and "Dark mode".
 7. Add the real content in the backoffice (Conteúdos and Projetos, PT and EN), then update the Figma screens to match.
 8. Submit to Moodle: Figma link, source code, website address.
 
