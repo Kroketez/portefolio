@@ -1,53 +1,67 @@
-# Portfolio project: status on 2026-10-13
+# Portfolio project: status on 2026-10-16
 
 School assignment: professional online portfolio with Figma design, website and backoffice.
 Read this file first when continuing the work in a new conversation.
 
-## Where everything is
+## Links
 
 | What | Where |
 |---|---|
-| Figma file | https://www.figma.com/design/FYAD8YzqHI2BbsQfKwz95v (pages: 1. Arquitetura da informação, 2. Wireframes, 3. Design UI + Protótipo) |
-| Website code | `portfolio/` in this folder (Vite + React + TypeScript) |
-| HTML used to generate the Figma frames | `figma/` in this folder |
-| Supabase project | "Kroketez's Project", ref `vpotqgallcsnlehsvszu`, region eu-west-1 |
-| Database script | `portfolio/supabase/schema.sql` (already applied) |
-| Contact function | `portfolio/supabase/functions/contact/index.ts` (already deployed as `contact`) |
-| Setup instructions | `portfolio/README.md` |
+| Live website | https://portefolio-neon-phi.vercel.app |
+| Backoffice | https://portefolio-neon-phi.vercel.app/admin (log in with the user created in Supabase > Authentication > Users) |
+| Source code | https://github.com/Kroketez/portefolio (branch `main`) |
+| Figma file | https://www.figma.com/design/FYAD8YzqHI2BbsQfKwz95v |
+| Figma prototype | Figma > page "3. Design UI + Protótipo" > Present. Flows: Website público, Backoffice, Mobile, Dark mode |
 
-## How to run the site
+## Accounts and services
 
-In a terminal, inside the `portfolio` folder: `npm run dev`, then open http://localhost:5173.
-The backoffice is at http://localhost:5173/admin (log in with the user created in Supabase > Authentication > Users).
+| Service | Details |
+|---|---|
+| Supabase | Project "Kroketez's Project", ref `vpotqgallcsnlehsvszu`, region eu-west-1, free plan. Sign-ups are closed: only the owner's account exists. |
+| Vercel | Account "kroketez", project "portefolio". Root Directory `portfolio`, framework Vite. Settings `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` set for all environments. |
+| GitHub | Account "Kroketez". The Vercel GitHub app is installed, so every push to `main` publishes the site automatically. |
+| Brevo | Account "Kroketez". API key stored only as the Supabase secret `BREVO_API_KEY` (never in the code). Sender and recipient emails stored as `BREVO_SENDER_EMAIL` and `CONTACT_TO_EMAIL`. IP blocking for API keys is off, which the contact function needs. |
 
-Note: `portfolio/.env` holds the Supabase address and public key. It is not copied by Git, so it must be
-recreated from `.env.example` on another computer, and set in Vercel when publishing.
+## Where things are in this folder
 
-## Done
+| Folder / file | Content |
+|---|---|
+| `portfolio/` | Website code (Vite + React + TypeScript). Setup notes in `portfolio/README.md`. |
+| `portfolio/supabase/schema.sql` | Database tables, access rules, storage and placeholder content (already applied). |
+| `portfolio/supabase/functions/contact/index.ts` | Contact form function: validates, saves the message, sends the email through Brevo (deployed as `contact`). |
+| `figma/` | HTML files used to generate the Figma frames. |
 
-- Figma: sitemap, 8 wireframes, 18 UI frames (public site, backoffice, English, dark mode, mobile, style guide), prototype links with two flows.
-- Website: Home, Sobre mim, Projetos (search and filters), project page, CV (view and PDF download), Contacto, in PT and EN, dark mode, responsive, SEO titles.
-- Backoffice: login, session, logout, dashboard, projects, contents, messages, statistics.
-- Supabase: tables, access rules, file storage and placeholder content created; site connected; admin user created and login confirmed working.
-- Brevo: account created, three secrets saved in Supabase (`BREVO_API_KEY`, `BREVO_SENDER_EMAIL`, `CONTACT_TO_EMAIL`), test emails delivered to Gmail. IP blocking is off.
-- Delete buttons in the backoffice now use a two-click confirmation instead of a browser pop-up.
+## Running the site on this computer
+
+In a terminal inside `portfolio`: `npm run dev`, then open http://localhost:5173.
+`portfolio/.env` (not on GitHub) holds the Supabase address and public key; recreate it from `.env.example` on another computer.
+Node.js was installed with winget; if `npm` is not found, open a new terminal.
+
+## Publishing changes
+
+Push to `main` on GitHub and Vercel rebuilds the site within a minute or two.
+
+## Done (all tested)
+
+- Phase 1, Figma: information architecture, 8 wireframes, 18 UI frames (public site, backoffice, English, dark mode, mobile, style guide), prototype with 4 flows; all links checked, none broken.
+- Phase 2, website: Home, Sobre mim, Projetos (search and filters), project page, CV (online and PDF download), Contacto (validation, feedback, Brevo email). PT and EN, dark mode, responsive, SEO titles, visit statistics.
+- Phase 3, backoffice: login, session, logout, dashboard, projects, contents, skills, experience, messages, statistics. Delete buttons ask for a second click.
+- Security checked as an anonymous visitor: cannot read messages or statistics, cannot change content, cannot write to the database directly.
+- Live site tested on 2026-10-16: contact form email arrived, backoffice login and Contactos work.
 
 ## Still to do
 
-1. ~~Confirm the Brevo test email arrived.~~ Confirmed on 2026-10-13: the email reached the Gmail inbox, so the contact form works end to end.
-2. ~~Replace the Brevo API key.~~ Done on 2026-10-13: old key deleted, new key saved in Supabase, test email arrived.
-   Brevo IP blocking confirmed off on 2026-10-16 (API keys and SMTP keys both "Desativada").
-3. ~~Close sign-ups in Supabase.~~ Done on 2026-10-16: "Allow new users to sign up" is off.
-4. ~~Test the two-click delete button.~~ Tested on 2026-10-14 with the real login: works.
-5. ~~Publish.~~ Done on 2026-10-16. Code: https://github.com/Kroketez/portefolio. Live site: https://portefolio-neon-phi.vercel.app (Vercel project "portefolio", both VITE_SUPABASE_* values set).
-   GitHub is connected to Vercel (Root Directory `portfolio`): every push to `main` publishes the site automatically.
-   Live site tested on 2026-10-16: contact form email arrived, backoffice login and Contactos work.
-6. ~~Check the Figma prototype.~~ Done on 2026-10-16: all links audited (none broken), both main flows clicked through in Present mode. Added links for PT/EN, dark mode and mobile, and flows "Mobile" and "Dark mode".
-7. Add the real content in the backoffice (Conteúdos and Projetos, PT and EN), then update the Figma screens to match.
-8. Submit to Moodle: Figma link, source code, website address.
+1. Add the real content in the backoffice (Conteúdos, Competências, Experiência e formação, Projetos; PT and EN; photo; CV PDF). The site currently shows placeholder text and six example projects.
+2. After that, update the Figma screens to match the real content.
+3. Submit to Moodle:
+   - Figma: share link (Share > "Anyone with the link" > can view) or a `.fig` file (File > Save local copy).
+   - Information architecture, wireframes and prototype: pages 1, 2 and 3 of the Figma file (can be exported as PDF).
+   - Source code: the GitHub link (or a zip without `node_modules` and `.env`).
+   - Working website: the Vercel link.
 
 ## Known limits
 
 - The backoffice interface is in Portuguese only.
-- Free Supabase projects pause after about a week without activity: open the site shortly before it is graded.
+- Free Supabase projects pause after about a week without visits: open the site a day before it is graded.
+- Prototype links react only when clicking directly on the text.
 - Supabase suggests turning on "leaked password protection" (Authentication settings); optional.
