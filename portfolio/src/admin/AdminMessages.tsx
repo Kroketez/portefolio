@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Icon } from '../components/Icon'
 import { useData } from '../lib/app'
 import { list, remove, save } from '../lib/db'
 import type { Message, PageView } from '../lib/types'
@@ -116,7 +117,8 @@ export function AdminMessages() {
             </div>
             <p className="msg-body">{open.message}</p>
             <a className="bt block" href={`mailto:${open.email}?subject=${encodeURIComponent(`Re: ${open.subject}`)}`}>
-              Responder por email ↗
+              Responder por email
+              <Icon name="external" size={16} />
             </a>
             <div className="btns">
               <button className="bt o" onClick={() => setRead(open, !open.read)}>

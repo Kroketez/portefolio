@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Icon } from '../components/Icon'
 import { ProjectCard, Status } from '../components/ui'
 import { useApp, useData, useSeo } from '../lib/app'
 import { list } from '../lib/db'
@@ -27,12 +28,13 @@ export default function Projects() {
   return (
     <>
       <section className="sec wrap sec-head">
-        <div className="eb">{t('home.portfolio')}</div>
         <h1 className="h1s">{t('nav.projects')}</h1>
         <p className="lead">{t('projects.lead')}</p>
 
         <div className="filters">
-          <input
+          <label className="search">
+            <Icon name="search" />
+            <input
             className="in"
             type="search"
             placeholder={t('projects.search')}
@@ -40,12 +42,13 @@ export default function Projects() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          </label>
           <div className="chips">
-            <button className={category ? 'chip' : 'chip on'} onClick={() => setCategory('')}>
+            <button className={category ? 'chip' : 'chip on'} aria-pressed={!category} onClick={() => setCategory('')}>
               {t('projects.all')}
             </button>
             {categories.map((name) => (
-              <button key={name} className={category === name ? 'chip on' : 'chip'} onClick={() => setCategory(name)}>
+              <button key={name} className={category === name ? 'chip on' : 'chip'} aria-pressed={category === name} onClick={() => setCategory(name)}>
                 {name}
               </button>
             ))}
@@ -65,7 +68,7 @@ export default function Projects() {
       </section>
 
       <section className="wrap sec-body">
-        <Status loading={loading} error={error}>
+        <Status loading={loading} error={error} skeleton="cards">
           {results.length ? (
             <div className="g3">
               {results.map((p) => (

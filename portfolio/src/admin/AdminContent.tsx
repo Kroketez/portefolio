@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Icon } from '../components/Icon'
 import { useApp, useData } from '../lib/app'
 import { contentGroups, contentKeys } from '../lib/contentKeys'
 import { list, newId, remove, save, upload } from '../lib/db'
@@ -51,7 +52,7 @@ function TextsEditor({ group }: { group: string }) {
       for (const k of keys) await save('content', get(k.key))
       await reloadContent()
       reload()
-      setMsg({ type: 'ok', text: '✓ Alterações guardadas com sucesso.' })
+      setMsg({ type: 'ok', text: 'Alterações guardadas com sucesso.' })
     } catch (err) {
       setMsg({ type: 'fail', text: `Não foi possível guardar: ${(err as Error).message}` })
     } finally {
@@ -86,7 +87,8 @@ function TextsEditor({ group }: { group: string }) {
               {row.pt && k.upload === 'image' && <img src={row.pt} alt="" className="thumb" />}
               {row.pt && k.upload === 'pdf' && (
                 <a href={row.pt} target="_blank" rel="noreferrer" className="lk">
-                  Ver PDF atual ↗
+                  Ver PDF atual
+                  <Icon name="external" size={16} />
                 </a>
               )}
               <div className="btns">
@@ -147,7 +149,7 @@ function useRows<T extends { id: string; sort: number }>(table: 'skills' | 'expe
   async function saveAll() {
     try {
       for (const [i, row] of rows.entries()) await save(table, { ...row, sort: i } as never)
-      setMsg({ type: 'ok', text: '✓ Alterações guardadas com sucesso.' })
+      setMsg({ type: 'ok', text: 'Alterações guardadas com sucesso.' })
       reload()
     } catch (err) {
       setMsg({ type: 'fail', text: `Não foi possível guardar: ${(err as Error).message}` })

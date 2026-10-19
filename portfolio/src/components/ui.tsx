@@ -3,13 +3,15 @@ import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp } from '../lib/app'
 import type { Experience, Project } from '../lib/types'
+import { Icon } from './Icon'
 
 /** Shows the image when there is one, otherwise a neutral labelled placeholder. */
 export function Img({ src, alt, label, className, style }: { src: string; alt: string; label: string; className?: string; style?: CSSProperties }) {
-  if (src) return <img src={src} alt={alt} className={`img ${className ?? ''}`} style={style} loading="lazy" />
+  if (src) return <img src={src} alt={alt} className={`img ${className ?? ''}`} style={style} loading="lazy" decoding="async" />
   return (
     <div className={`ph ${className ?? ''}`} style={style} role="img" aria-label={alt}>
-      {label}
+      <Icon name={label === 'Fotografia' || label === 'Photo' ? 'user' : 'image'} size={28} />
+      <span>{label}</span>
     </div>
   )
 }
@@ -32,9 +34,13 @@ export function ProjectCard({ project }: { project: Project }) {
     <Link to={`/projetos/${project.slug}`} className="card card-link">
       <Img src={project.cover_url} alt={pick(project, 'title')} label={t('ph.image')} className="card-img" />
       <div className="cb">
-        <h3>{pick(project, 'title')}</h3>
+        {project.category && <div className="card-meta">{project.category}</div>}
+        <h3 className="card-title">
+          {pick(project, 'title')}
+          <Icon name="arrowRight" size={18} className="icon card-arrow" />
+        </h3>
         <p>{pick(project, 'summary')}</p>
-        <Chips items={[project.category, ...project.technologies].filter(Boolean).slice(0, 4)} />
+        {project.technologies.length > 0 && <Chips items={project.technologies.slice(0, 3)} />}
       </div>
     </Link>
   )
@@ -46,7 +52,7 @@ export function Timeline({ items, dated }: { items: Experience[]; dated?: boolea
     <div>
       {items.map((item) => (
         <div className="tli" key={item.id}>
-          <i className="dot" />
+          <i className="dot" aria-hidden="true" />
           {dated ? (
             <div className="tl-head">
               <h3>{pick(item, 'title')}</h3>
@@ -54,8 +60,8 @@ export function Timeline({ items, dated }: { items: Experience[]; dated?: boolea
             </div>
           ) : (
             <>
-              <div className="lb">{item.period}</div>
-              <h3 style={{ marginTop: 6 }}>{pick(item, 'title')}</h3>
+              <div className="tl-period">{item.period}</div>
+              <h3>{pick(item, 'title')}</h3>
             </>
           )}
           <div className="mu">{[item.org, item.location].filter(Boolean).join(' · ')}</div>
@@ -66,11 +72,39 @@ export function Timeline({ items, dated }: { items: Experience[]; dated?: boolea
   )
 }
 
-/** Loading / error wrapper for pages that fetch data. */
-export function Status({ loading, error, children }: { loading: boolean; error: string; children: ReactNode }) {
+/** Placeholder shapes shown while data loads, sized like the real content to avoid layout jumps. */
+export function Skeleton({ kind }: { kind: 'cards' | 'lines' }) {
   const { t } = useApp()
-  if (loading) return <p className="status">{t('loading')}</p>
-  if (error) return <p className="status err">{t('loadError')}</p>
+  if (kind === 'cards') {
+    return (
+      <div className="g3" aria-busy="true" aria-label={t('loading')}>
+        {[0, 1, 2].map((i) => (
+          <div className="card sk-card" key={i}>
+            <div className="sk sk-img" />
+            <div className="cb">
+              <div className="sk sk-line" style={{ width: '40%' }} />
+              <div className="sk sk-line lg" style={{ width: '70%' }} />
+              <div className="sk sk-line" />
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+  return (
+    <div aria-busy="true" aria-label={t('loading')}>
+      {[70, 90, 55].map((w) => (
+        <div className="sk sk-line lg" style={{ width: `${w}%` }} key={w} />
+      ))}
+    </div>
+  )
+}
+
+/** Loading / error wrapper for pages that fetch data. */
+export function Status({ loading, error, children, skeleton = 'lines' }: { loading: boolean; error: string; children: ReactNode; skeleton?: 'cards' | 'lines' }) {
+  const { t } = useApp()
+  if (loading) return <Skeleton kind={skeleton} />
+  if (error) return <p className="status err" role="alert">{t('loadError')}</p>
   return <>{children}</>
 }
 
@@ -106,7 +140,8 @@ export function ConfirmButton({ className, label = 'Eliminar', onConfirm }: { cl
   return (
     <button
       type="button"
-      className={className}
+      className={armed ? `${className} armed` : className}
+      aria-live="polite"
       onClick={() => {
         if (!armed) return setArmed(true)
         setArmed(false)

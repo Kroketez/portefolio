@@ -31,17 +31,41 @@ const stored = (key: string) => {
   }
 }
 
+const CONTENT_CACHE = 'pf:cache:content'
+
+const remember = (key: string, value: string) => {
+  try {
+    localStorage.setItem(key, value)
+  } catch {
+    // private mode or storage full: the site still works without it
+  }
+}
+
 export function AppProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => (stored('pf:lang') === 'en' ? 'en' : 'pt'))
-  const [theme, setTheme] = useState<Theme>(() => (stored('pf:theme') === 'dark' ? 'dark' : 'light'))
-  const [content, setContent] = useState<Record<string, { pt: string; en: string }>>({})
+  // First visit follows the system setting; after that the visitor's own choice wins.
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = stored('pf:theme')
+    if (saved === 'dark' || saved === 'light') return saved
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+  // Last loaded content is cached so the real name and texts show immediately on the next visit.
+  const [content, setContent] = useState<Record<string, { pt: string; en: string }>>(() => {
+    try {
+      return JSON.parse(stored(CONTENT_CACHE) ?? '{}')
+    } catch {
+      return {}
+    }
+  })
 
   const reloadContent = useCallback(async () => {
     try {
       const rows = await list('content')
-      setContent(Object.fromEntries(rows.map((r) => [r.key, { pt: r.pt, en: r.en }])))
+      const next = Object.fromEntries(rows.map((r) => [r.key, { pt: r.pt, en: r.en }]))
+      setContent(next)
+      remember(CONTENT_CACHE, JSON.stringify(next))
     } catch {
-      setContent({})
+      // keep whatever is already shown
     }
   }, [])
 
@@ -51,12 +75,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = lang
-    localStorage.setItem('pf:lang', lang)
+    remember('pf:lang', lang)
   }, [lang])
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    localStorage.setItem('pf:theme', theme)
+    remember('pf:theme', theme)
   }, [theme])
 
   const value = useMemo<AppState>(

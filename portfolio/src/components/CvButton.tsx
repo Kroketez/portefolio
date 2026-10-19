@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Icon } from './Icon'
 import { useApp } from '../lib/app'
 import { track } from '../lib/db'
 
@@ -15,6 +16,7 @@ export function CvButton({ className, label, print }: { className: string; label
   if (pdf) {
     return (
       <a className={className} href={pdf} download="cv.pdf" target="_blank" rel="noreferrer" onClick={count}>
+        <Icon name="download" />
         {label}
       </a>
     )
@@ -28,12 +30,14 @@ export function CvButton({ className, label, print }: { className: string; label
           window.print()
         }}
       >
+        <Icon name="download" />
         {label}
       </button>
     )
   }
   return (
     <Link className={className} to="/cv">
+      <Icon name="download" />
       {label}
     </Link>
   )

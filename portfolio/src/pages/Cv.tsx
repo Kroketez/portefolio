@@ -15,7 +15,6 @@ export default function Cv() {
     <>
       <section className="sec wrap sec-head cv-head no-print">
         <div>
-          <div className="eb">{t('cv.eyebrow')}</div>
           <h1 className="h1s">Curriculum Vitae</h1>
           <p className="lead">{t('cv.lead')}</p>
         </div>

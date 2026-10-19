@@ -26,7 +26,6 @@ export default function About() {
       <section className="sec wrap g2">
         <Img src={c('photo_url')} alt={c('name')} label={t('ph.photo')} className="about-photo" />
         <div className="col">
-          <div className="eb">{t('nav.about')}</div>
           <h1 className="h1s">{c('about_heading')}</h1>
           <Paragraphs text={c('about_bio')} className="big" />
           <div className="btns">
@@ -42,7 +41,6 @@ export default function About() {
 
       <section className="band">
         <div className="sec wrap">
-          <div className="eb">{t('about.skillsEyebrow')}</div>
           <h2 className="mb">{t('about.skills')}</h2>
           <Status loading={skills.loading} error={skills.error}>
             <div className="g3">

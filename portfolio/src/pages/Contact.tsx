@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { Icon } from '../components/Icon'
 import { SocialLinks } from '../components/Layout'
 import { useApp, useSeo } from '../lib/app'
 import { sendContact } from '../lib/db'
@@ -99,7 +100,6 @@ export default function Contact() {
   return (
     <section className="sec wrap g2">
       <div className="col">
-        <div className="eb">{t('nav.contact')}</div>
         <h1 className="h1s">{t('contact.title')}</h1>
         <p className="lead">{t('contact.lead')}</p>
         {c('email') && (
@@ -114,12 +114,14 @@ export default function Contact() {
             <span>{c('location')}</span>
           </div>
         )}
-        <div className="info">
-          <div className="lb">{t('contact.social')}</div>
-          <div className="chips">
-            <SocialLinks className="chip ln" />
+        {(c('linkedin') || c('github') || c('behance')) && (
+          <div className="info">
+            <div className="lb">{t('contact.social')}</div>
+            <div className="chips">
+              <SocialLinks className="chip ln" />
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="col">
@@ -137,8 +139,18 @@ export default function Contact() {
             {state === 'sending' ? t('f.sending') : t('f.send')}
           </button>
           <div aria-live="polite">
-            {state === 'ok' && <div className="ok">✓ {t('f.ok')}</div>}
-            {state === 'fail' && <div className="fail">{t('f.fail')}</div>}
+            {state === 'ok' && (
+              <div className="ok">
+                <Icon name="check" />
+                {t('f.ok')}
+              </div>
+            )}
+            {state === 'fail' && (
+              <div className="fail" role="alert">
+                <Icon name="alert" />
+                {t('f.fail')}
+              </div>
+            )}
           </div>
         </form>
       </div>
@@ -151,7 +163,6 @@ export function NotFound() {
   useSeo(t('notfound.title'))
   return (
     <section className="sec wrap center">
-      <div className="eb">404</div>
       <h1 className="h1s">{t('notfound.title')}</h1>
       <div className="btns center">
         <Link to="/" className="bt">

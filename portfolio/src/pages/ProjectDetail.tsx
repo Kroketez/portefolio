@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { Icon } from '../components/Icon'
 import { Chips, Img, Paragraphs, Status } from '../components/ui'
 import { useApp, useData, useSeo } from '../lib/app'
 import { list } from '../lib/db'
@@ -22,13 +23,15 @@ export default function ProjectDetail() {
         <section className="sec wrap">
           <p className="status">{t('project.notFound')}</p>
           <Link to="/projetos" className="lk">
-            {t('project.back')}
+            <Icon name="arrowLeft" size={16} />
+              {t('project.back')}
           </Link>
         </section>
       ) : (
         <>
           <section className="sec wrap sec-head">
             <Link to="/projetos" className="lk">
+              <Icon name="arrowLeft" size={16} />
               {t('project.back')}
             </Link>
             {project.category && <Chips items={[project.category]} />}
@@ -90,11 +93,13 @@ export default function ProjectDetail() {
                     {project.live_url && (
                       <a className="bt block" href={project.live_url} target="_blank" rel="noreferrer">
                         {t('project.live')}
+                        <Icon name="external" size={16} />
                       </a>
                     )}
                     {project.repo_url && (
                       <a className="bt o block" href={project.repo_url} target="_blank" rel="noreferrer">
                         {t('project.repo')}
+                        <Icon name="external" size={16} />
                       </a>
                     )}
                   </div>
@@ -117,7 +122,10 @@ export default function ProjectDetail() {
                 {prev && (
                   <Link to={`/projetos/${prev.slug}`}>
                     <div className="lb">{t('project.prev')}</div>
-                    <h3>← {pick(prev, 'title')}</h3>
+                    <h3>
+                      <Icon name="arrowLeft" />
+                      {pick(prev, 'title')}
+                    </h3>
                   </Link>
                 )}
               </div>
@@ -125,7 +133,10 @@ export default function ProjectDetail() {
                 {next && (
                   <Link to={`/projetos/${next.slug}`}>
                     <div className="lb">{t('project.next')}</div>
-                    <h3>{pick(next, 'title')} →</h3>
+                    <h3>
+                      {pick(next, 'title')}
+                      <Icon name="arrowRight" />
+                    </h3>
                   </Link>
                 )}
               </div>

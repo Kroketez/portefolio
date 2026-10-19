@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Icon } from '../components/Icon'
 import { useData } from '../lib/app'
 import { list } from '../lib/db'
 import type { PageView } from '../lib/types'
@@ -51,6 +52,8 @@ export default function Dashboard() {
   const recent = within(all, 30)
   const msgs = messages.data ?? []
   const projs = projects.data ?? []
+  // Show a dash, not a misleading 0, until every count has loaded.
+  const loadingAll = projects.loading || messages.loading || views.loading
 
   const cards = [
     { label: 'Projetos', value: projs.length, note: `${projs.filter((p) => !p.published).length} em rascunho` },
@@ -66,8 +69,8 @@ export default function Dashboard() {
         {cards.map((card) => (
           <div className="st" key={card.label}>
             <div className="lb">{card.label}</div>
-            <div className="v">{card.value}</div>
-            <div className="mu">{card.note}</div>
+            <div className="v">{loadingAll ? '—' : card.value}</div>
+            <div className="mu">{loadingAll ? ' ' : card.note}</div>
           </div>
         ))}
       </div>
@@ -77,7 +80,8 @@ export default function Dashboard() {
           <div className="pn-head">
             <h3>Últimas mensagens</h3>
             <Link to="/admin/contactos" className="lk">
-              Ver todas →
+              Ver todas
+              <Icon name="arrowRight" size={16} />
             </Link>
           </div>
           {msgs.length === 0 ? (
@@ -110,7 +114,8 @@ export default function Dashboard() {
         <div className="pn grow1">
           <h3>Ações rápidas</h3>
           <Link to="/admin/projetos?novo=1" className="bt block">
-            + Novo projeto
+            <Icon name="plus" />
+            Novo projeto
           </Link>
           <Link to="/admin/conteudos" className="bt o block">
             Editar conteúdos

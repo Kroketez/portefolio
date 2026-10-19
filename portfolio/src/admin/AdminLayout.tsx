@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { Link, NavLink, Navigate, Outlet, useNavigate } from 'react-router-dom'
 import { LangSwitch, Logo, ThemeSwitch } from '../components/Layout'
+import { Icon } from '../components/Icon'
+import type { IconName } from '../components/Icon'
 import { DEMO_EMAIL, DEMO_PASSWORD, getUser, isDemo, onAuthChange, signIn, signOut } from '../lib/db'
 import type { SessionUser } from '../lib/db'
 
@@ -15,12 +17,12 @@ function useSession() {
   return user
 }
 
-const menu = [
-  { to: '/admin', label: 'Dashboard', end: true },
-  { to: '/admin/projetos', label: 'Projetos' },
-  { to: '/admin/conteudos', label: 'Conteúdos' },
-  { to: '/admin/contactos', label: 'Contactos' },
-  { to: '/admin/estatisticas', label: 'Estatísticas' },
+const menu: { to: string; label: string; icon: IconName; end?: boolean }[] = [
+  { to: '/admin', label: 'Dashboard', icon: 'dashboard', end: true },
+  { to: '/admin/projetos', label: 'Projetos', icon: 'folder' },
+  { to: '/admin/conteudos', label: 'Conteúdos', icon: 'text' },
+  { to: '/admin/contactos', label: 'Contactos', icon: 'inbox' },
+  { to: '/admin/estatisticas', label: 'Estatísticas', icon: 'chart' },
 ]
 
 /** Every /admin page renders inside this guard: no session, no backoffice. */
@@ -32,7 +34,7 @@ export default function AdminLayout() {
     document.title = 'Backoffice'
   }, [])
 
-  if (user === undefined) return <p className="status">A carregar…</p>
+  if (user === undefined) return <p className="status" aria-busy="true">A carregar…</p>
   if (user === null) return <Navigate to="/admin/login" replace />
 
   return (
@@ -42,6 +44,7 @@ export default function AdminLayout() {
         <nav>
           {menu.map((m) => (
             <NavLink key={m.to} to={m.to} end={m.end} className="mi">
+              <Icon name={m.icon} />
               {m.label}
             </NavLink>
           ))}
@@ -55,6 +58,7 @@ export default function AdminLayout() {
               navigate('/admin/login')
             }}
           >
+            <Icon name="logout" />
             Terminar sessão
           </button>
         </div>
@@ -82,7 +86,8 @@ export function PageHead({ title, sub, children }: { title: string; sub: string;
         {children}
         <ThemeSwitch />
         <Link to="/" className="bt o s">
-          Ver site ↗
+          Ver site
+          <Icon name="external" size={16} />
         </Link>
       </div>
     </div>
@@ -151,7 +156,8 @@ export function Login() {
           {busy ? 'A entrar…' : 'Entrar'}
         </button>
         <Link to="/" className="mu back">
-          ← Voltar ao site
+          <Icon name="arrowLeft" size={16} />
+          Voltar ao site
         </Link>
       </form>
     </div>

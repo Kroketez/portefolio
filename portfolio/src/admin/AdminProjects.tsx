@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Icon } from '../components/Icon'
 import { useData } from '../lib/app'
 import { list, newId, remove, save, upload } from '../lib/db'
 import type { Project } from '../lib/types'
@@ -115,7 +116,8 @@ export default function AdminProjects() {
     <>
       <PageHead title="Projetos" sub="Cria, edita e publica os projetos do portefólio">
         <button className="bt s" onClick={() => setEditing(blank(projects.length))}>
-          + Novo projeto
+          <Icon name="plus" />
+          Novo projeto
         </button>
       </PageHead>
       {msg.text && <div className={msg.type}>{msg.text}</div>}
