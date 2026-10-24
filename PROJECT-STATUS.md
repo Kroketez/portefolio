@@ -11,7 +11,7 @@ Read this file first when continuing the work in a new conversation.
 | Backoffice | https://portefolio-neon-phi.vercel.app/admin (log in with the user created in Supabase > Authentication > Users) |
 | Source code | https://github.com/Kroketez/portefolio (branch `main`) |
 | Figma file | https://www.figma.com/design/FYAD8YzqHI2BbsQfKwz95v |
-| Figma prototype | Figma > page "3. Design UI + Protótipo" > Present. Flows: Website público, Backoffice, Mobile, Dark mode |
+| Figma prototype | Figma > page "3. Design UI + Protótipo" > Present. Flows: Website público, Backoffice, Dark mode, Mobile (versão anterior). The top row "Design UI — versão final" matches the live site; rows below are the previous version (Starter plan allows only 3 pages). |
 
 ## Accounts and services
 
@@ -44,6 +44,7 @@ Push to `main` on GitHub and Vercel rebuilds the site within a minute or two.
 ## Done (all tested)
 
 - Phase 1, Figma: information architecture, 8 wireframes, 18 UI frames (public site, backoffice, English, dark mode, mobile, style guide), prototype with 4 flows; all links checked, none broken.
+- Redesign on 2026-10-24: fonts Bricolage Grotesque (headings) and Figtree (text), warm paper background, cobalt accent, new home layout (big hero, featured project showcase, dark closing band). Figma top row regenerated from the live pages. Backoffice keeps its layout with the new fonts and colours; its Figma frames, the English and mobile frames are still the previous style.
 - Phase 2, website: Home, Sobre mim, Projetos (search and filters), project page, CV (online and PDF download), Contacto (validation, feedback, Brevo email). PT and EN, dark mode, responsive, SEO titles, visit statistics.
 - Phase 3, backoffice: login, session, logout, dashboard, projects, contents, skills, experience, messages, statistics. Delete buttons ask for a second click.
 - Security checked as an anonymous visitor: cannot read messages or statistics, cannot change content, cannot write to the database directly.
@@ -60,6 +61,8 @@ Push to `main` on GitHub and Vercel rebuilds the site within a minute or two.
    - Working website: the Vercel link.
 
 ## Known limits
+
+- The local site runs on port 5180 (5173 is used by another project, BudgetApp).
 
 - The backoffice interface is in Portuguese only.
 - Free Supabase projects pause after about a week without visits: open the site a day before it is graded.
