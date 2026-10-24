@@ -630,6 +630,7 @@ textarea.in {
   height: 100%;
   border-radius: 0;
   border: 0;
+  object-position: left top;
 }
 
 .hero {
@@ -672,8 +673,10 @@ textarea.in {
 
 .cover {
   width: 100%;
-  height: clamp(240px, 42vw, 600px);
+  aspect-ratio: 16 / 10;
+  height: auto;
   border-radius: 24px;
+  object-position: left top;
 }
 
 .gallery {
