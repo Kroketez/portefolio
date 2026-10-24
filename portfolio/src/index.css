@@ -680,11 +680,21 @@ textarea.in {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  align-items: start;
   padding-bottom: 96px;
 }
 
+/* screenshots keep their real proportions (a phone capture is tall, a desktop one wide) */
 .gallery-img {
   width: 100%;
+  height: auto;
+  max-height: 720px;
+  object-fit: contain;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.gallery .ph.gallery-img {
   height: 380px;
 }
 
