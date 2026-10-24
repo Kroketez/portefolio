@@ -28,12 +28,14 @@ export function Chips({ items, variant }: { items: string[]; variant?: 'ln' }) {
   )
 }
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, big }: { project: Project; big?: boolean }) {
   const { pick, t } = useApp()
   return (
-    <Link to={`/projetos/${project.slug}`} className="card card-link">
-      <Img src={project.cover_url} alt={pick(project, 'title')} label={t('ph.image')} className="card-img" />
-      <div className="cb">
+    <Link to={`/projetos/${project.slug}`} className={big ? 'work card-link work-big' : 'work card-link'}>
+      <div className="work-media">
+        <Img src={project.cover_url} alt={pick(project, 'title')} label={t('ph.image')} className="card-img" />
+      </div>
+      <div className="work-body">
         {project.category && <div className="card-meta">{project.category}</div>}
         <h3 className="card-title">
           {pick(project, 'title')}

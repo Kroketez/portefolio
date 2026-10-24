@@ -33,7 +33,7 @@ Read this file first when continuing the work in a new conversation.
 
 ## Running the site on this computer
 
-In a terminal inside `portfolio`: `npm run dev`, then open http://localhost:5173.
+In a terminal inside `portfolio`: `npm run dev`, then open http://localhost:5180.
 `portfolio/.env` (not on GitHub) holds the Supabase address and public key; recreate it from `.env.example` on another computer.
 Node.js was installed with winget; if `npm` is not found, open a new terminal.
 

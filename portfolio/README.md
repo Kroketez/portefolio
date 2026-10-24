@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Abre http://localhost:5173.
+Abre http://localhost:5180.
 
 Sem o ficheiro `.env`, o site corre em **modo de demonstração**: os dados ficam
 guardados só no navegador e o login do backoffice (`/admin`) usa as credenciais

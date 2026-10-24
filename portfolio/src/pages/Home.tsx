@@ -18,8 +18,8 @@ export default function Home() {
 
   return (
     <>
-      <section className="sec wrap hero">
-        <div className="col hero-text">
+      <section className="wrap hero">
+        <div className="hero-text">
           <h1>{c('name')}</h1>
           <p className="hero-title">{c('hero_title')}</p>
           <p className="lead">{c('hero_intro')}</p>
@@ -30,63 +30,80 @@ export default function Home() {
             </Link>
             <CvButton className="bt o" label={t('home.downloadCv')} />
           </div>
+          <ul className="hero-meta">
+            {c('location') && (
+              <li>
+                <Icon name="pin" size={16} />
+                {c('location')}
+              </li>
+            )}
+            {c('email') && (
+              <li>
+                <Icon name="mail" size={16} />
+                <a href={`mailto:${c('email')}`}>{c('email')}</a>
+              </li>
+            )}
+          </ul>
         </div>
         <Img src={c('photo_url')} alt={c('name')} label={t('ph.photo')} className="hero-photo" />
       </section>
 
-      <section className="band" aria-labelledby="featured-title">
-        <div className="sec wrap">
-          <div className="sh">
-            <h2 id="featured-title">{t('home.featured')}</h2>
-            <Link to="/projetos" className="lk">
-              {t('home.viewAll')}
+      <section className="sec wrap" aria-labelledby="featured-title">
+        <div className="sh">
+          <h2 id="featured-title">{t('home.featured')}</h2>
+          <Link to="/projetos" className="lk">
+            {t('home.viewAll')}
+            <Icon name="arrowRight" size={16} />
+          </Link>
+        </div>
+        <Status loading={projects.loading} error={projects.error} skeleton="cards">
+          <div className="featured">
+            {shown.map((p, i) => (
+              <ProjectCard key={p.id} project={p} big={i === 0 && shown.length === 3} />
+            ))}
+          </div>
+        </Status>
+      </section>
+
+      <section className="sec wrap about-teaser" aria-labelledby="about-title">
+        <h2 id="about-title">{t('nav.about')}</h2>
+        <div>
+          <p className="statement">{c('about_short')}</p>
+          <Chips items={(skills.data ?? []).slice(0, 8).map((s) => s.name)} variant="ln" />
+          <div className="about-foot">
+            {stats.length > 0 && (
+              <dl className="stats">
+                {stats.map((n) => (
+                  <div key={n}>
+                    <dt className="mu">{c(`stat${n}_label`)}</dt>
+                    <dd className="stat-v">{c(`stat${n}_value`)}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            <Link to="/sobre" className="lk">
+              {t('home.more')}
               <Icon name="arrowRight" size={16} />
             </Link>
           </div>
-          <Status loading={projects.loading} error={projects.error} skeleton="cards">
-            <div className="g3">
-              {shown.map((p) => (
-                <ProjectCard key={p.id} project={p} />
-              ))}
-            </div>
-          </Status>
         </div>
       </section>
 
-      <section className="sec wrap g2" aria-labelledby="about-title">
-        <div className="col">
-          <h2 id="about-title">{t('nav.about')}</h2>
-          <p className="big measure">{c('about_short')}</p>
-          <div className="btns">
-            <Link to="/sobre" className="bt o">
-              {t('home.more')}
-            </Link>
-          </div>
-        </div>
-        <div className="col">
-          <h3 className="sub-h">{t('home.mainSkills')}</h3>
-          <Chips items={(skills.data ?? []).slice(0, 8).map((s) => s.name)} variant="ln" />
-          {stats.length > 0 && (
-            <dl className="stats">
-              {stats.map((n) => (
-                <div key={n}>
-                  <dt className="mu">{c(`stat${n}_label`)}</dt>
-                  <dd className="stat-v">{c(`stat${n}_value`)}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-        </div>
-      </section>
-
-      <section className="wrap cta-wrap">
-        <div className="cta">
+      <section className="cta-band">
+        <div className="wrap">
           <h2>{c('cta_title')}</h2>
           <p>{c('cta_text')}</p>
-          <Link to="/contacto" className="bt inv">
-            {t('home.ctaBtn')}
-            <Icon name="arrowRight" />
-          </Link>
+          <div className="btns">
+            <Link to="/contacto" className="bt inv">
+              {t('home.ctaBtn')}
+              <Icon name="arrowRight" />
+            </Link>
+            {c('email') && (
+              <a className="cta-mail" href={`mailto:${c('email')}`}>
+                {c('email')}
+              </a>
+            )}
+          </div>
         </div>
       </section>
     </>
