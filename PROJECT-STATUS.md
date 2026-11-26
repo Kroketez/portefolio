@@ -52,9 +52,10 @@ Push to `main` on GitHub and Vercel rebuilds the site within a minute or two.
 
 ## Still to do
 
-1. Add the real content in the backoffice (Conteúdos, Competências, Experiência e formação, Projetos; PT and EN; photo; CV PDF). The site currently shows placeholder text and six example projects.
-2. After that, update the Figma screens to match the real content.
-3. Submit to Moodle:
+Done on 2026-11-26: real content entered (name, texts PT/EN, contacts, skills, FCT at FGP, ESCO course), the six example projects set to draft, Selo and Hoje texts revised, photo placeholder shows initials. Figma page 3: top three rows ("versão final": website, backoffice, mobile) regenerated from the real pages with prototype links; flows Website público, Backoffice, Dark mode, Mobile, Inglês. The style guide frame is still the previous style.
+
+1. Optional: LinkedIn URL (Conteúdos > Contactos e redes), photo, CV PDF, exact FCT dates.
+2. Submit to Moodle:
    - Figma: share link (Share > "Anyone with the link" > can view) or a `.fig` file (File > Save local copy).
    - Information architecture, wireframes and prototype: pages 1, 2 and 3 of the Figma file (can be exported as PDF).
    - Source code: the GitHub link (or a zip without `node_modules` and `.env`).
