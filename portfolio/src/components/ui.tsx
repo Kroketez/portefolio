@@ -8,6 +8,15 @@ import { Icon } from './Icon'
 /** Shows the image when there is one, otherwise a neutral labelled placeholder. */
 export function Img({ src, alt, label, className, style }: { src: string; alt: string; label: string; className?: string; style?: CSSProperties }) {
   if (src) return <img src={src} alt={alt} className={`img ${className ?? ''}`} style={style} loading="lazy" decoding="async" />
+  const isPhoto = label === 'Fotografia' || label === 'Photo'
+  const initials = alt.split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join('').toUpperCase()
+  if (isPhoto && initials) {
+    return (
+      <div className={`ph ph-initials ${className ?? ''}`} style={style} role="img" aria-label={alt}>
+        {initials}
+      </div>
+    )
+  }
   return (
     <div className={`ph ${className ?? ''}`} style={style} role="img" aria-label={alt}>
       <Icon name={label === 'Fotografia' || label === 'Photo' ? 'user' : 'image'} size={28} />
