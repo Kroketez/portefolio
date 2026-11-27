@@ -52,7 +52,7 @@ Push to `main` on GitHub and Vercel rebuilds the site within a minute or two.
 
 ## Still to do
 
-Done on 2026-11-26: real content entered (name, texts PT/EN, contacts, skills, FCT at FGP, ESCO course), the six example projects set to draft, Selo and Hoje texts revised, photo placeholder shows initials. Figma page 3: top three rows ("versão final": website, backoffice, mobile) regenerated from the real pages with prototype links; flows Website público, Backoffice, Dark mode, Mobile, Inglês. The style guide frame is still the previous style.
+Done on 2026-11-26: real content entered (name, texts PT/EN, contacts, skills, FCT at FGP, ESCO course), the six example projects set to draft, Selo and Hoje texts revised, photo placeholder shows initials. Figma page 3: top three rows ("versão final": website, backoffice, mobile) regenerated from the real pages with prototype links; flows Website público, Backoffice, Dark mode, Mobile, Inglês. New style guide frame added (node 71:2) but not yet moved next to the mobile row: the Figma MCP Starter-plan limit was reached. On 2026-11-27 the portfolio itself was added as a third project (`portefolio`, images in `public/projects/portefolio`); the Figma frames were captured before that and show two projects.
 
 1. Optional: LinkedIn URL (Conteúdos > Contactos e redes), photo, CV PDF, exact FCT dates.
 2. Submit to Moodle:
