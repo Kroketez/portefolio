@@ -34,10 +34,15 @@ export default function ProjectDetail() {
               <Icon name="arrowLeft" size={16} />
               {t('project.back')}
             </Link>
-            {project.category && <Chips items={[project.category]} />}
             <h1 className="h1s">{pick(project, 'title')}</h1>
             <p className="lead">{pick(project, 'summary')}</p>
             <div className="meta">
+              {project.category && (
+                <div>
+                  <div className="lb">{t('project.type')}</div>
+                  <b>{project.category}</b>
+                </div>
+              )}
               {project.client && (
                 <div>
                   <div className="lb">{t('project.client')}</div>

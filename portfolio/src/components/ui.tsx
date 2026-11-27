@@ -45,13 +45,21 @@ export function ProjectCard({ project, big }: { project: Project; big?: boolean 
         <Img src={project.cover_url} alt={pick(project, 'title')} label={t('ph.image')} className="card-img" />
       </div>
       <div className="work-body">
-        {project.category && <div className="card-meta">{project.category}</div>}
         <h3 className="card-title">
           {pick(project, 'title')}
           <Icon name="arrowRight" size={18} className="icon card-arrow" />
         </h3>
         <p>{pick(project, 'summary')}</p>
-        {project.technologies.length > 0 && <Chips items={project.technologies.slice(0, 3)} />}
+        {(project.category || project.technologies.length > 0) && (
+          <div className="chips">
+            {project.category && <span className="chip ln">{project.category}</span>}
+            {project.technologies.slice(0, 3).map((tech) => (
+              <span key={tech} className="chip">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </Link>
   )

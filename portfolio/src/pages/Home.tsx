@@ -6,7 +6,7 @@ import { useApp, useData, useSeo } from '../lib/app'
 import { list } from '../lib/db'
 
 export default function Home() {
-  const { t, c } = useApp()
+  const { t, c, pick } = useApp()
   useSeo()
   const projects = useData(() => list('projects', { column: 'sort' }))
   const skills = useData(() => list('skills', { column: 'sort' }))
@@ -14,7 +14,8 @@ export default function Home() {
   const published = (projects.data ?? []).filter((p) => p.published)
   const featured = published.filter((p) => p.featured)
   const shown = (featured.length ? featured : published).slice(0, 3)
-  const stats = [1, 2].filter((n) => c(`stat${n}_value`))
+  const covers = shown.filter((p) => p.cover_url).slice(0, 2)
+  const stats =[1, 2].filter((n) => c(`stat${n}_value`))
 
   return (
     <>
@@ -45,7 +46,18 @@ export default function Home() {
             )}
           </ul>
         </div>
-        <Img src={c('photo_url')} alt={c('name')} label={t('ph.photo')} className="hero-photo" />
+        {c('photo_url') || covers.length === 0 ? (
+          <Img src={c('photo_url')} alt={c('name')} label={t('ph.photo')} className="hero-photo" />
+        ) : (
+          // Without a photo, the hero shows the work itself: the covers of the first featured projects.
+          <div className={`hero-stack n${covers.length}`}>
+            {covers.map((p) => (
+              <Link key={p.id} to={`/projetos/${p.slug}`} className="hero-shot" aria-label={pick(p, 'title')}>
+                <img src={p.cover_url} alt="" decoding="async" />
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="sec wrap" aria-labelledby="featured-title">

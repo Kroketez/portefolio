@@ -624,6 +624,39 @@ textarea.in {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--accent);
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+
+/* On narrow screens an empty photo slot costs a whole screen of scrolling; leave it out. */
+@media screen and (max-width: 1000px) {
+  .ph-initials.hero-photo,
+  .ph-initials.about-photo,
+  .ph-initials.cv-photo,
+  .hero-stack {
+    display: none;
+  }
+
+  /* On a phone the CV opens with the name and summary; contacts and skills follow. */
+  .cv-side {
+    order: 2;
+  }
+
+  .cv-side > h3:first-of-type {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tl-head {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .tl-head .mu {
+    order: -1;
+    font-size: 13px;
+  }
 }
 
 .img {
@@ -669,6 +702,72 @@ textarea.in {
   aspect-ratio: 4 / 5;
   height: auto;
   border-radius: 28px;
+}
+
+/* No photo yet: the hero shows two project covers, slightly overlapped like prints on a desk. */
+.hero-stack {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  animation: settle 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-shot {
+  position: absolute;
+  width: 92%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ph);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(14, 20, 32, 0.04), 0 24px 48px -16px rgba(14, 20, 32, 0.22);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.hero-stack.n1 .hero-shot {
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%) rotate(-1.5deg);
+}
+
+.hero-stack.n2 .hero-shot:first-child {
+  top: 8%;
+  right: 0;
+  transform: rotate(2deg);
+}
+
+.hero-stack.n2 .hero-shot:last-child {
+  bottom: 8%;
+  left: 0;
+  transform: rotate(-2.5deg);
+}
+
+.hero-stack .hero-shot:hover,
+.hero-stack .hero-shot:focus-visible {
+  z-index: 2;
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 2px 4px rgba(14, 20, 32, 0.05), 0 32px 64px -20px rgba(14, 20, 32, 0.3);
+}
+
+.hero-stack.n1 .hero-shot:hover,
+.hero-stack.n1 .hero-shot:focus-visible {
+  transform: translateY(calc(-50% - 4px));
+}
+
+.hero-shot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .hero-shot {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 24px 48px -16px rgba(0, 0, 0, 0.6);
 }
 
 .about-photo {
@@ -766,7 +865,7 @@ textarea.in {
 
 .meta {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 24px;
   margin-top: 48px;
   padding-top: 32px;
@@ -859,6 +958,11 @@ textarea.in {
   justify-content: space-between;
   gap: 16px;
   align-items: baseline;
+}
+
+.tl-head .mu {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .cv-head {
@@ -1643,13 +1747,6 @@ main:focus {
 }
 
 /* ---------- project cards ---------- */
-
-.card-meta {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent);
-  margin-bottom: 6px;
-}
 
 .card-title {
   display: flex;
