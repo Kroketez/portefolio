@@ -2084,6 +2084,7 @@ main:focus {
     display: none !important;
   }
 
+  body,
   .band,
   .cv-band {
     background: #fff;
@@ -2099,9 +2100,25 @@ main:focus {
 
   .cv-side {
     width: 220px;
+    order: 0;
+  }
+
+  .cv-sheet > .col {
+    flex: 1;
+    width: auto;
+    min-width: 0;
   }
 
   .cv-photo {
     height: 220px;
+  }
+
+  /* No photo yet: the printed CV starts straight with the contacts. */
+  .ph-initials.cv-photo {
+    display: none;
+  }
+
+  .cv-side > h3:first-of-type {
+    margin-top: 0;
   }
 }
